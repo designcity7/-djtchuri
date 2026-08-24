@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Tchuri — Pacotes e Agendamento Oficial</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+        :root{--preto:#000;--ouro:#d4af37;--ouro-claro:#f5d742;--branco:#fff;--cinza:#f5f5f5;--escuro:#111}
+        body{background:linear-gradient(135deg,#000,#1a1a1a);color:#fff;min-height:100vh}
+        header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;flex-wrap:wrap;gap:15px}
+        .logo{font-size:28px;font-weight:bold;color:var(--ouro)}
+        nav a{color:#fff;margin-left:25px;text-decoration:none;transition:.3s}
+        nav a:hover{color:var(--ouro)}
+        section{padding:60px 5%;max-width:1200px;margin:0 auto}
+        h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro)}
+        h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--ouro)}
+        .hero{text-align:center;padding:40px 20px}
+        .hero p{font-size:20px;max-width:700px;margin:15px auto;color:#ccc}
+
+        .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-bottom:50px}
+        .cartao{background:#222;border-radius:14px;padding:28px;border:2px solid #444;transition:.3s;position:relative;overflow:hidden}
+        .cartao:hover{border-color:var(--ouro);transform:translateY(-6px);box-shadow:0 10px 30px rgba(212,175,55,.15)}
+        .cartao.master{border-color:var(--ouro);transform:scale(1.02)}
+        .cartao h3{font-size:24px;color:var(--ouro);margin-bottom:15px;text-align:center}
+        .cartao ul{list-style:none;margin-bottom:18px}
+        .cartao li{padding:6px 0;border-bottom:1px solid #333;font-size:15px}
+        .cartao li:last-child{border:none}
+        .preco-destaque{font-size:36px;font-weight:bold;text-align:center;margin:15px 0;color:var(--ouro-claro)}
+        .btn-pacote{display:block;text-align:center;padding:12px;background:linear-gradient(90deg,#d4af37,#b8860b);color:#000;font-weight:bold;border-radius:8px;text-decoration:none;transition:.3s;margin-top:10px}
+        .btn-pacote:hover{background:var(--ouro-claro)}
+        .tag-mestre{position:absolute;top:0;right:0;background:var(--ouro);color:#000;padding:4px 15px;font-weight:bold;border-radius:0 14px 0 14px}
+
+        .cartazes{display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:30px;margin:40px 0}
+        .cartazes img{width:100%;border-radius:12px;border:2px solid var(--ouro);object-fit:cover}
+        .cartaz-placeholder{background:#222;border:2px dashed #555;padding:60px 20px;text-align:center;border-radius:12px;color:#888}
+
+        .extras{background:#222;padding:25px;border-radius:12px;border:1px solid #444;margin-top:30px}
+        .extras h3{color:var(--ouro);margin-bottom:15px;text-align:center}
+        .extras-lista{display:flex;justify-content:space-around;flex-wrap:wrap;gap:15px}
+        .extra-item{background:#333;padding:12px 20px;border-radius:8px;text-align:center}
+
+        form{background:#222;padding:30px;border-radius:12px;border:1px solid #444;max-width:600px;margin:0 auto}
+        .grupo{margin-bottom:18px}
+        label{display:block;margin-bottom:6px;color:var(--ouro)}
+        input,select,textarea{width:100%;padding:12px;border-radius:6px;border:none;background:#333;color:#fff;font-size:16px}
+        button{width:100%;padding:14px;background:var(--ouro);color:#000;font-weight:bold;font-size:18px;border:none;border-radius:6px;cursor:pointer;transition:.3s}
+        button:hover{background:#b8860b}
+        .contato{text-align:center;margin-top:40px;padding:25px;background:#222;border-radius:12px;border:1px solid #444}
+        .contato p{margin:8px 0;font-size:18px}
+        footer{text-align:center;padding:25px;color:#777;border-top:1px solid #333;margin-top:40px}
+        .aviso-moeda{text-align:center;color:#999;font-size:14px;margin-top:8px}
+        @media(max-width:600px){nav a{margin-left:12px;font-size:14px} .cartazes{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🎧 DJ TCHURI</div>
+    <nav>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#cartazes">Cartazes</a>
+        <a href="#agendar">Agendar</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>ADQUIRA SEU PACOTE</h1>
+    <p>Transformando sua festa em uma experiência inesquecível! 🎵<br>Valores em <strong>Dólar Americano ($)</strong></p>
+</section>
+
+<section id="pacotes">
+    <h2>📋 Nossos Pacotes</h2>
+    <div class="destaques">
+        <div class="cartao">
+            <h3>📦 BÁSICO</h3>
+            <ul>
+                <li>🔊 1 Caixa de Som</li>
+                <li>🎤 1 Microfone Sem Fio</li>
+                <li>💡 1 Jogo de Luz Simples</li>
+                <li>⏱️ 4 Horas de Evento</li>
+                <li>➕ Hora adicional: $100</li>
+                <li>📍 Preço adicional conforme distância</li>
+            </ul>
+            <p class="preco-destaque">$ 600</p>
+            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
+        </div>
+
+        <div class="cartao master">
+            <span class="tag-mestre">⭐ MAIS VENDIDO</span>
+            <h3>👑 MASTER</h3>
+            <ul>
+                <li>🔊 2 Caixas de Som</li>
+                <li>🎤 2 Microfones Sem Fio</li>
+                <li>💡 2 Jogos de Luz Profissional</li>
+                <li>🔫 Laser Profissional</li>
+                <li>🎉 Máquina de Confete</li>
+                <li>💨 Máquina de Fumaça</li>
+                <li>⏱️ 6 Horas de Evento</li>
+                <li>➕ Hora adicional: $100</li>
+                <li>📍 Preço adicional conforme distância</li>
+            </ul>
+            <p class="preco-destaque">$ 1.000</p>
+            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
+        </div>
+
+        <div class="cartao">
+            <h3>📦 INTERMEDIÁRIO</h3>
+            <ul>
+                <li>🔊 2 Caixas de Som</li>
+                <li>🎤 2 Microfones Sem Fio</li>
+                <li>💡 2 Jogos de Luz Profissional</li>
+                <li>⏱️ 5 Horas de Evento</li>
+                <li>➕ Hora adicional: $100</li>
+                <li>📍 Preço adicional conforme distância</li>
+            </ul>
+            <p class="preco-destaque">$ 800</p>
+            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
+        </div>
+    </div>
+
+    <div class="extras">
+        <h3>✨ Efeitos Especiais Adicionais</h3>
+        <div class="extras-lista">
+            <div class="extra-item">🎉 Confete — $75</div>
+            <div class="extra-item">💨 Fumaça — $50</div>
+        </div>
+    </div>
+    <p class="aviso-moeda">💱 Valores em Dólar Americano (USD) — Conversão automática disponível no momento do contato</p>
+</section>
+
+<section id="cartazes">
+    <h2>🖼️ Cartazes Oficiais</h2>
+    <p style="text-align:center; color:#ccc; margin-bottom:20px;">Baixe e compartilhe — Versão em Português e Inglês</p>
+    <div class="cartazes">
+        <div>
+            <h4 style="text-align:center; color:var(--ouro); margin-bottom:10px;">🇧🇷 Português</h4>
+            <div class="cartaz-placeholder">
+                📸 Cartaz em Português<br>
+                <small>Salve sua imagem como: <b>cartaz-pt.jpg</b></small>
+            </div>
+        </div>
+        <div>
+            <h4 style="text-align:center; color:var(--ouro); margin-bottom:10px;">🇺🇸 English</h4>
+            <div class="cartaz-placeholder">
+                📸 Cartaz em Inglês<br>
+                <small>Salve sua imagem como: <b>cartaz-en.jpg</b></small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="agendar">
+    <h2>📅 Agende seu Evento</h2>
+    <form action="#" method="POST">
+        <div class="grupo">
+            <label for="nome">Nome Completo *</label>
+            <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="grupo">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="Ex: +1 (774) 822-0069">
+        </div>
+        <div class="grupo">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="grupo">
+            <label for="pacote">Pacote Desejado *</label>
+            <select id="pacote" name="pacote" required>
+                <option value="">Selecione...</option>
+                <option>Básico — $600 (4h)</option>
+                <option>Intermediário — $800 (5h)</option>
+                <option>Master — $1.000 (6h) ⭐ Mais Popular</option>
+                <option>Personalizado / Orçamento</option>
+            </select>
+        </div>
+        <div class="grupo">
+            <label for="data">Data do Evento *</label>
+            <input type="date" id="data" name="data" required>
+        </div>
+        <div class="grupo">
+            <label for="hora">Horário de Início *</label>
+            <input type="time" id="hora" name="hora" required>
+        </div>
+        <div class="grupo">
+            <label for="cidade">Cidade / Local + Distância *</label>
+            <input type="text" id="cidade" name="cidade" required placeholder="Informe o local e distância">
+        </div>
+        <div class="grupo">
+            <label>Extras desejados:</label>
+            <div style="display:flex; gap:15px; flex-wrap:wrap; padding:8px 0;">
+                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox"> Confete ($75)</label>
+                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox"> Fumaça ($50)</label>
+            </div>
+        </div>
+        <div class="grupo">
+            <label for="detalhes">Detalhes Adicionais</label>
+            <textarea id="detalhes" name="detalhes" rows="4" placeholder="Tipo de evento, preferências musicais..."></textarea>
+        </div>
+        <button type="submit">✅ ENVIAR SOLICITAÇÃO</button>
+    </form>
+</section>
+
+<section id="contato" class="contato">
+    <h2>📞 Contato Direto</h2>
+    <p><strong>📱 WhatsApp / Telefone:</strong> +1 (774) 822-0069</p>
+    <p><strong>🎧 DJ Tchuri — SE7EN Productions</strong></p>
+    <p>Atendimento internacional — Agências, empresas e eventos privados</p>
+</section>
+
+<footer>
+    <p>© 2026 DJ Tchuri / SE7EN Productions — Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
