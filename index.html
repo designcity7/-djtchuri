@@ -44,8 +44,8 @@
         .grupo{margin-bottom:18px}
         label{display:block;margin-bottom:6px;color:var(--ouro)}
         input,select,textarea{width:100%;padding:12px;border-radius:6px;border:none;background:#333;color:#fff;font-size:16px}
-        button{width:100%;padding:14px;background:var(--ouro);color:#000;font-weight:bold;font-size:18px;border:none;border-radius:6px;cursor:pointer;transition:.3s}
-        button:hover{background:#b8860b}
+        button{width:100%;padding:14px;background:#25d366;color:#fff;font-weight:bold;font-size:18px;border:none;border-radius:6px;cursor:pointer;transition:.3s}
+        button:hover{background:#1da851}
         .contato{text-align:center;margin-top:40px;padding:25px;background:#222;border-radius:12px;border:1px solid #444}
         .contato p{margin:8px 0;font-size:18px}
         footer{text-align:center;padding:25px;color:#777;border-top:1px solid #333;margin-top:40px}
@@ -153,22 +153,22 @@
 
 <section id="agendar">
     <h2>📅 Agende seu Evento</h2>
-    <form action="#" method="POST">
+    <form id="form-agendamento">
         <div class="grupo">
             <label for="nome">Nome Completo *</label>
-            <input type="text" id="nome" name="nome" required>
+            <input type="text" id="nome" required>
         </div>
         <div class="grupo">
             <label for="telefone">Telefone / WhatsApp *</label>
-            <input type="tel" id="telefone" name="telefone" required placeholder="Ex: +1 (774) 822-0069">
+            <input type="tel" id="telefone" required placeholder="Ex: +1 (774) 822-0069">
         </div>
         <div class="grupo">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email">
         </div>
         <div class="grupo">
             <label for="pacote">Pacote Desejado *</label>
-            <select id="pacote" name="pacote" required>
+            <select id="pacote" required>
                 <option value="">Selecione...</option>
                 <option>Básico — $600 (4h)</option>
                 <option>Intermediário — $800 (5h)</option>
@@ -178,28 +178,28 @@
         </div>
         <div class="grupo">
             <label for="data">Data do Evento *</label>
-            <input type="date" id="data" name="data" required>
+            <input type="date" id="data" required>
         </div>
         <div class="grupo">
             <label for="hora">Horário de Início *</label>
-            <input type="time" id="hora" name="hora" required>
+            <input type="time" id="hora" required>
         </div>
         <div class="grupo">
             <label for="cidade">Cidade / Local + Distância *</label>
-            <input type="text" id="cidade" name="cidade" required placeholder="Informe o local e distância">
+            <input type="text" id="cidade" required placeholder="Informe o local e distância">
         </div>
         <div class="grupo">
             <label>Extras desejados:</label>
             <div style="display:flex; gap:15px; flex-wrap:wrap; padding:8px 0;">
-                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox"> Confete ($75)</label>
-                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox"> Fumaça ($50)</label>
+                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox" id="confete"> Confete ($75)</label>
+                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox" id="fumaca"> Fumaça ($50)</label>
             </div>
         </div>
         <div class="grupo">
             <label for="detalhes">Detalhes Adicionais</label>
-            <textarea id="detalhes" name="detalhes" rows="4" placeholder="Tipo de evento, preferências musicais..."></textarea>
+            <textarea id="detalhes" rows="4" placeholder="Tipo de evento, preferências musicais..."></textarea>
         </div>
-        <button type="submit">✅ ENVIAR SOLICITAÇÃO</button>
+        <button type="submit">💬 ENVIAR PELO WHATSAPP</button>
     </form>
 </section>
 
@@ -213,6 +213,52 @@
 <footer>
     <p>© 2026 DJ Tchuri / SE7EN Productions — Todos os direitos reservados</p>
 </footer>
+
+<script>
+// ✅ ENVIA DIRETO PRO WHATSAPP — SEM ERRO 405!
+const form = document.getElementById('form-agendamento');
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const email = document.getElementById('email').value || 'Não informado';
+    const pacote = document.getElementById('pacote').value;
+    const data = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+    const cidade = document.getElementById('cidade').value;
+    const confete = document.getElementById('confete').checked ? '✅ Sim ($75)' : '❌ Não';
+    const fumaca = document.getElementById('fumaca').checked ? '✅ Sim ($50)' : '❌ Não';
+    const detalhes = document.getElementById('detalhes').value || 'Nenhum';
+
+    const mensagem = `🎵 NOVO AGENDAMENTO — DJ TCHURI
+
+👤 Nome: ${nome}
+📱 Telefone: ${telefone}
+📧 E-mail: ${email}
+
+📦 Pacote: ${pacote}
+📅 Data: ${data}
+⏰ Horário: ${hora}
+📍 Local/Distância: ${cidade}
+
+✨ Extras:
+• Confete: ${confete}
+• Fumaça: ${fumaca}
+
+📝 Detalhes:
+${detalhes}
+
+---
+Solicitação de agendamento via Site Oficial`;
+
+    // Número WhatsApp: +1 (774) 822-0069 → formato internacional sem símbolos
+    const numero = '17748220069';
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    
+    window.open(url, '_blank');
+});
+</script>
 
 </body>
 </html>
