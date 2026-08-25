@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ Tchuri — Site Oficial | Agendamento e Eventos</title>
+    <title>DJ Tchuri — Site Oficial | MTG & Eventos</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-        :root{--preto:#000;--ouro:#d4af37;--ouro-claro:#f5d742;--branco:#fff;--cinza:#f5f5f5;--escuro:#111}
-        body{background:linear-gradient(135deg,#000,#1a1a1a);color:#fff;min-height:100vh}
-        header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333;flex-wrap:wrap;gap:15px;position:sticky;top:0;background:rgba(0,0,0,0.95);z-index:999}
-        .logo{font-size:28px;font-weight:bold;color:var(--ouro)}
+        :root{--preto:#000;--ouro:#d4af37;--ouro-claro:#f5d742;--branco:#fff;--cinza:#f5f5f5;--escuro:#111;--vermelho:#e50914}
+        
+        /* === FUNDO COM IMAGEM — MAIS PROFISSIONAL === */
+        body{
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), 
+                        url('fundo-djtchuri.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color:#fff;
+            min-height:100vh;
+        }
+
+        header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(212,175,55,0.3);flex-wrap:wrap;gap:15px;position:sticky;top:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:999}
+        .logo{font-size:28px;font-weight:bold;color:var(--ouro);text-shadow:0 0 10px rgba(212,175,55,0.5)}
         nav a{color:#fff;margin-left:20px;text-decoration:none;transition:.3s}
-        nav a:hover{color:var(--ouro)}
+        nav a:hover{color:var(--ouro);text-shadow:0 0 8px rgba(212,175,55,0.6)}
         section{padding:60px 5%;max-width:1200px;margin:0 auto}
-        h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro)}
-        h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--ouro)}
+        h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro);text-shadow:0 0 15px rgba(212,175,55,0.4)}
+        h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--ouro);text-shadow:0 0 10px rgba(212,175,55,0.3)}
         .hero{text-align:center;padding:50px 20px}
         .hero p{font-size:20px;max-width:700px;margin:15px auto;color:#ccc}
 
         /* === SOBRE O DJ === */
-        .sobre-dj{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;background:#222;padding:40px;border-radius:14px;border:1px solid #444;margin-bottom:50px}
-        .foto-dj{width:100%;aspect-ratio:1/1;background:#333;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:60px;border:2px solid var(--ouro)}
+        .sobre-dj{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;background:rgba(0,0,0,0.6);padding:40px;border-radius:14px;border:1px solid rgba(212,175,55,0.4);backdrop-filter:blur(5px);margin-bottom:50px}
+        .foto-dj{width:100%;aspect-ratio:1/1;background:linear-gradient(135deg,#222,#333);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:60px;border:2px solid var(--ouro);box-shadow:0 0 20px rgba(212,175,55,0.2)}
         .sobre-texto h3{color:var(--ouro);font-size:26px;margin-bottom:20px}
         .sobre-texto p{color:#ddd;line-height:1.8;margin-bottom:15px;font-size:16px}
         .sobre-texto ul{color:#ddd;line-height:2}
+        .estilo-mtg{color:var(--vermelho);font-weight:bold;text-shadow:0 0 5px rgba(229,9,20,0.5)}
         @media(max-width:768px){.sobre-dj{grid-template-columns:1fr}}
 
         /* === GALERIA DE IMAGENS === */
         .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:50px}
-        .galeria-item{background:#222;border-radius:12px;overflow:hidden;border:2px solid #444;transition:.3s}
-        .galeria-item:hover{border-color:var(--ouro);transform:scale(1.03)}
-        .galeria-img{width:100%;aspect-ratio:16/9;background:#333;display:flex;align-items:center;justify-content:center;font-size:40px;color:#888}
+        .galeria-item{background:rgba(0,0,0,0.6);border-radius:12px;overflow:hidden;border:2px solid rgba(212,175,55,0.3);transition:.3s;backdrop-filter:blur(5px)}
+        .galeria-item:hover{border-color:var(--ouro);transform:scale(1.03);box-shadow:0 0 20px rgba(212,175,55,0.2)}
+        .galeria-img{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#222,#333);display:flex;align-items:center;justify-content:center;font-size:40px;color:#888}
         .galeria-info{padding:15px}
         .galeria-info h4{color:var(--ouro);margin-bottom:5px}
         .galeria-info p{color:#999;font-size:14px}
@@ -38,32 +48,33 @@
 
         /* === PACOTES === */
         .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-bottom:50px}
-        .cartao{background:#222;border-radius:14px;padding:28px;border:2px solid #444;transition:.3s;position:relative;overflow:hidden}
-        .cartao:hover{border-color:var(--ouro);transform:translateY(-6px);box-shadow:0 10px 30px rgba(212,175,55,.15)}
-        .cartao.master{border-color:var(--ouro);transform:scale(1.02)}
+        .cartao{background:rgba(0,0,0,0.6);border-radius:14px;padding:28px;border:2px solid rgba(212,175,55,0.3);transition:.3s;position:relative;overflow:hidden;backdrop-filter:blur(5px)}
+        .cartao:hover{border-color:var(--ouro);transform:translateY(-6px);box-shadow:0 10px 30px rgba(212,175,55,0.2)}
+        .cartao.master{border-color:var(--ouro);transform:scale(1.02);box-shadow:0 0 25px rgba(212,175,55,0.25)}
         .cartao h3{font-size:24px;color:var(--ouro);margin-bottom:15px;text-align:center}
         .cartao ul{list-style:none;margin-bottom:18px}
-        .cartao li{padding:6px 0;border-bottom:1px solid #333;font-size:15px}
+        .cartao li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:15px}
         .cartao li:last-child{border:none}
-        .preco-destaque{font-size:36px;font-weight:bold;text-align:center;margin:15px 0;color:var(--ouro-claro)}
+        .preco-destaque{font-size:36px;font-weight:bold;text-align:center;margin:15px 0;color:var(--ouro-claro);text-shadow:0 0 10px rgba(245,215,66,0.3)}
         .btn-pacote{display:block;text-align:center;padding:12px;background:linear-gradient(90deg,#d4af37,#b8860b);color:#000;font-weight:bold;border-radius:8px;text-decoration:none;transition:.3s;margin-top:10px}
-        .btn-pacote:hover{background:var(--ouro-claro)}
+        .btn-pacote:hover{background:var(--ouro-claro);box-shadow:0 0 15px rgba(212,175,55,0.4)}
         .tag-mestre{position:absolute;top:0;right:0;background:var(--ouro);color:#000;padding:4px 15px;font-weight:bold;border-radius:0 14px 0 14px}
 
-        .extras{background:#222;padding:25px;border-radius:12px;border:1px solid #444;margin-top:30px}
+        .extras{background:rgba(0,0,0,0.6);padding:25px;border-radius:12px;border:1px solid rgba(212,175,55,0.3);margin-top:30px;backdrop-filter:blur(5px)}
         .extras h3{color:var(--ouro);margin-bottom:15px;text-align:center}
         .extras-lista{display:flex;justify-content:space-around;flex-wrap:wrap;gap:15px}
-        .extra-item{background:#333;padding:12px 20px;border-radius:8px;text-align:center}
+        .extra-item{background:rgba(255,255,255,0.1);padding:12px 20px;border-radius:8px;text-align:center;border:1px solid rgba(255,255,255,0.1)}
 
-        form{background:#222;padding:30px;border-radius:12px;border:1px solid #444;max-width:600px;margin:0 auto}
+        form{background:rgba(0,0,0,0.6);padding:30px;border-radius:12px;border:1px solid rgba(212,175,55,0.3);max-width:600px;margin:0 auto;backdrop-filter:blur(5px)}
         .grupo{margin-bottom:18px}
         label{display:block;margin-bottom:6px;color:var(--ouro)}
-        input,select,textarea{width:100%;padding:12px;border-radius:6px;border:none;background:#333;color:#fff;font-size:16px}
+        input,select,textarea{width:100%;padding:12px;border-radius:6px;border:none;background:rgba(255,255,255,0.1);color:#fff;font-size:16px;border:1px solid rgba(255,255,255,0.2)}
+        input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ouro)}
         button{width:100%;padding:14px;background:#25d366;color:#fff;font-weight:bold;font-size:18px;border:none;border-radius:6px;cursor:pointer;transition:.3s}
-        button:hover{background:#1da851}
-        .contato{text-align:center;margin-top:40px;padding:25px;background:#222;border-radius:12px;border:1px solid #444}
+        button:hover{background:#1da851;box-shadow:0 0 15px rgba(37,211,102,0.3)}
+        .contato{text-align:center;margin-top:40px;padding:25px;background:rgba(0,0,0,0.6);border-radius:12px;border:1px solid rgba(212,175,55,0.3);backdrop-filter:blur(5px)}
         .contato p{margin:8px 0;font-size:18px}
-        footer{text-align:center;padding:25px;color:#777;border-top:1px solid #333;margin-top:40px}
+        footer{text-align:center;padding:25px;color:#777;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px;background:rgba(0,0,0,0.5)}
         .aviso-moeda{text-align:center;color:#999;font-size:14px;margin-top:8px}
         @media(max-width:600px){nav a{margin-left:12px;font-size:14px} .sobre-dj{grid-template-columns:1fr}}
     </style>
@@ -83,7 +94,7 @@
 
 <section class="hero">
     <h1>DJ TCHURI — OFICIAL</h1>
-    <p>Transformando sua festa em uma experiência inesquecível! 🎵<br>Valores em <strong>Dólar Americano ($)</strong></p>
+    <p>O som que domina a pista! 🎶🔥 Especialista em <strong class="estilo-mtg">MTG</strong> e eventos de alto nível.<br>Valores em <strong>Dólar Americano ($)</strong></p>
 </section>
 
 <!-- 🎤 SOBRE O DJ TCHURI -->
@@ -92,15 +103,17 @@
     <div class="sobre-dj">
         <div class="foto-dj">🎧</div>
         <div class="sobre-texto">
-            <h3>DJ Tchuri — Profissional de Eventos</h3>
-            <p>Com anos de experiência no mundo da música e entretenimento, o DJ Tchuri se destaca por levar energia, animação e qualidade sonora para cada evento. Especializado em diversos ritmos e estilos, cria a atmosfera perfeita para festas, casamentos, eventos corporativos e shows de grande porte.</p>
-            <p>🎵 <strong>Estilos musicais:</strong> Funk, R&B, Hip-Hop, Eletrônica, Pop, Reggaeton e muito mais.</p>
-            <p>🎯 <strong>Compromisso:</strong> Pontualidade, equipamentos de primeira linha, repertório personalizado e dedicação total para que seu evento seja memorável!</p>
+            <h3>DJ Tchuri — O Rei da MTG</h3>
+            <p>Com anos de experiência no mundo da música, o DJ Tchuri se consolidou como um dos principais nomes do cenário nacional e internacional. Especializado em <strong class="estilo-mtg">MTG</strong>, traz o peso e a batida que todo evento precisa para explodir em energia!</p>
+            <p>🎵 <strong>Estilo principal:</strong> <span class="estilo-mtg">🔥 MTG — O melhor do funk mandelão, batidas pesadas e exclusivas</span></p>
+            <p>🎯 <strong>O que toca também:</strong> Funk, R&B, Hip-Hop, Eletrônica, Pop, Reggaeton e os maiores sucessos do momento!</p>
+            <p>💥 Toca em festas, bailes, eventos grandes e pequenos — sempre com a mesma qualidade e energia!</p>
             <ul>
-                <li>✅ Equipamento profissional de alta qualidade</li>
-                <li>✅ Repertório personalizado conforme o evento</li>
+                <li>✅ Equipamento profissional de alta qualidade — som potente e cristalino</li>
+                <li>✅ Repertório 100% personalizado — foco total em <strong class="estilo-mtg">MTG</strong> e pedidos do público</li>
                 <li>✅ Atendimento para todo o Brasil e exterior</li>
-                <li>✅ Experiência em eventos de todos os tamanhos</li>
+                <li>✅ Pontualidade, profissionalismo e muita energia em cada apresentação</li>
+                <li>✅ Shows ao vivo com transmissão e gravação disponível</li>
             </ul>
         </div>
     </div>
@@ -109,34 +122,34 @@
 <!-- 📸 GALERIA DE IMAGENS -->
 <section id="galeria">
     <h2>📸 Galeria — Eventos e Cartazes</h2>
-    <p class="aviso-imagem">👉 Para adicionar suas fotos: envie as imagens no GitHub com nomes: <b>foto1.jpg, foto2.jpg...</b></p>
+    <p class="aviso-imagem">👉 Para colocar suas fotos: envie as imagens no GitHub com nomes: <b>foto1.jpg, foto2.jpg...</b></p>
     <div class="galeria">
-        <div class="galeria-item">
-            <div class="galeria-img">📸</div>
-            <div class="galeria-info">
-                <h4>Evento ao Vivo</h4>
-                <p>Festa privada — 2026</p>
-            </div>
-        </div>
         <div class="galeria-item">
             <div class="galeria-img">🎤</div>
             <div class="galeria-info">
-                <h4>Apresentação</h4>
-                <p>Show com público</p>
+                <h4>Show MTG ao Vivo</h4>
+                <p>Evento lotado — 2026</p>
+            </div>
+        </div>
+        <div class="galeria-item">
+            <div class="galeria-img">🔥</div>
+            <div class="galeria-info">
+                <h4>Baile da MTG</h4>
+                <p>Noite de festa</p>
             </div>
         </div>
         <div class="galeria-item">
             <div class="galeria-img">🇧🇷</div>
             <div class="galeria-info">
-                <h4>Cartaz — Português</h4>
+                <h4>Cartaz — MTG Brasil</h4>
                 <p>Versão oficial</p>
             </div>
         </div>
         <div class="galeria-item">
-            <div class="galeria-img">🇺🇸</div>
+            <div class="galeria-img">🌎</div>
             <div class="galeria-info">
-                <h4>Cartaz — Inglês</h4>
-                <p>Versão internacional</p>
+                <h4>MTG Internacional</h4>
+                <p>Versão global</p>
             </div>
         </div>
     </div>
@@ -149,9 +162,10 @@
         <div class="cartao">
             <h3>📦 BÁSICO</h3>
             <ul>
-                <li>🔊 1 Caixa de Som</li>
+                <li>🔊 1 Caixa de Som Profissional</li>
                 <li>🎤 1 Microfone Sem Fio</li>
                 <li>💡 1 Jogo de Luz Simples</li>
+                <li>🎶 Setlist focado em MTG</li>
                 <li>⏱️ 4 Horas de Evento</li>
                 <li>➕ Hora adicional: $100</li>
                 <li>📍 Preço adicional conforme distância</li>
@@ -162,14 +176,15 @@
 
         <div class="cartao master">
             <span class="tag-mestre">⭐ MAIS VENDIDO</span>
-            <h3>👑 MASTER</h3>
+            <h3>👑 MASTER — MTG COMPLETO</h3>
             <ul>
-                <li>🔊 2 Caixas de Som</li>
+                <li>🔊 2 Caixas de Som Profissional</li>
                 <li>🎤 2 Microfones Sem Fio</li>
-                <li>💡 2 Jogos de Luz Profissional</li>
+                <li>💡 2 Jogos de Luz + Laser</li>
                 <li>🔫 Laser Profissional</li>
                 <li>🎉 Máquina de Confete</li>
                 <li>💨 Máquina de Fumaça</li>
+                <li>🎶 Setlist exclusivo MTG + ao vivo</li>
                 <li>⏱️ 6 Horas de Evento</li>
                 <li>➕ Hora adicional: $100</li>
                 <li>📍 Preço adicional conforme distância</li>
@@ -181,9 +196,10 @@
         <div class="cartao">
             <h3>📦 INTERMEDIÁRIO</h3>
             <ul>
-                <li>🔊 2 Caixas de Som</li>
+                <li>🔊 2 Caixas de Som Profissional</li>
                 <li>🎤 2 Microfones Sem Fio</li>
                 <li>💡 2 Jogos de Luz Profissional</li>
+                <li>🎶 Setlist MTG completo</li>
                 <li>⏱️ 5 Horas de Evento</li>
                 <li>➕ Hora adicional: $100</li>
                 <li>📍 Preço adicional conforme distância</li>
@@ -198,6 +214,7 @@
         <div class="extras-lista">
             <div class="extra-item">🎉 Confete — $75</div>
             <div class="extra-item">💨 Fumaça — $50</div>
+            <div class="extra-item">🎥 Gravação/Transmissão — $150</div>
         </div>
     </div>
     <p class="aviso-moeda">💱 Valores em Dólar Americano (USD) — Conversão automática disponível no momento do contato</p>
@@ -223,9 +240,9 @@
             <label for="pacote">Pacote Desejado *</label>
             <select id="pacote" required>
                 <option value="">Selecione...</option>
-                <option>Básico — $600 (4h)</option>
-                <option>Intermediário — $800 (5h)</option>
-                <option>Master — $1.000 (6h) ⭐ Mais Popular</option>
+                <option>Básico — $600 (4h) — MTG</option>
+                <option>Intermediário — $800 (5h) — MTG</option>
+                <option>Master — $1.000 (6h) ⭐ MTG Completo</option>
                 <option>Personalizado / Orçamento</option>
             </select>
         </div>
@@ -246,11 +263,12 @@
             <div style="display:flex; gap:15px; flex-wrap:wrap; padding:8px 0;">
                 <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox" id="confete"> Confete ($75)</label>
                 <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox" id="fumaca"> Fumaça ($50)</label>
+                <label style="display:inline; color:#fff; font-weight:normal;"><input type="checkbox" id="gravacao"> Gravação/Transmissão ($150)</label>
             </div>
         </div>
         <div class="grupo">
             <label for="detalhes">Detalhes Adicionais</label>
-            <textarea id="detalhes" rows="4" placeholder="Tipo de evento, preferências musicais..."></textarea>
+            <textarea id="detalhes" rows="4" placeholder="Tipo de evento, estilo musical, pedidos especiais..."></textarea>
         </div>
         <button type="submit">💬 ENVIAR PELO WHATSAPP</button>
     </form>
@@ -259,12 +277,12 @@
 <section id="contato" class="contato">
     <h2>📞 Contato Direto</h2>
     <p><strong>📱 WhatsApp / Telefone:</strong> +1 (774) 822-0069</p>
-    <p><strong>🎧 DJ Tchuri — SE7EN Productions</strong></p>
-    <p>Atendimento internacional — Agências, empresas e eventos privados</p>
+    <p><strong>🎧 DJ Tchuri — SE7EN Productions | MTG Oficial</strong></p>
+    <p>Atendimento internacional — Agências, empresas, bailes e eventos privados</p>
 </section>
 
 <footer>
-    <p>© 2026 DJ Tchuri / SE7EN Productions — Todos os direitos reservados</p>
+    <p>© 2026 DJ Tchuri / SE7EN Productions — Todos os direitos reservados | 🔥 MTG</p>
 </footer>
 
 <script>
@@ -282,9 +300,10 @@ form.addEventListener('submit', function(e){
     const cidade = document.getElementById('cidade').value;
     const confete = document.getElementById('confete').checked ? '✅ Sim ($75)' : '❌ Não';
     const fumaca = document.getElementById('fumaca').checked ? '✅ Sim ($50)' : '❌ Não';
+    const gravacao = document.getElementById('gravacao').checked ? '✅ Sim ($150)' : '❌ Não';
     const detalhes = document.getElementById('detalhes').value || 'Nenhum';
 
-    const mensagem = `🎵 NOVO AGENDAMENTO — DJ TCHURI
+    const mensagem = `🎵 NOVO AGENDAMENTO — DJ TCHURI | MTG 🔥
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
@@ -298,12 +317,13 @@ form.addEventListener('submit', function(e){
 ✨ Extras:
 • Confete: ${confete}
 • Fumaça: ${fumaca}
+• Gravação/Transmissão: ${gravacao}
 
 📝 Detalhes:
 ${detalhes}
 
 ---
-Solicitação de agendamento via Site Oficial`;
+Solicitação via Site Oficial — DJ Tchuri MTG`;
 
     const numero = '17748220069';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
