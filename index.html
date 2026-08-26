@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ Tchuri — MTG Oficial</title>
+    <title>DJ Tchuri — Oficial</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
         :root{--preto:#000;--ouro:#d4af37;--ouro-claro:#f5d742;--branco:#fff;--vermelho:#e50914}
@@ -18,7 +18,7 @@
 
         header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(212,175,55,0.3);flex-wrap:wrap;gap:15px;position:sticky;top:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);z-index:999}
         .logo{font-size:28px;font-weight:bold;color:var(--ouro);text-shadow:0 0 12px rgba(212,175,55,0.5)}
-        nav a{color:#fff;margin-left:20px;text-decoration:none;transition:.3s}
+        nav a{color:#fff;margin-left:15px;text-decoration:none;transition:.3s;font-size:15px}
         nav a:hover{color:var(--ouro);text-shadow:0 0 6px rgba(212,175,55,0.4)}
         section{padding:60px 5%;max-width:1200px;margin:0 auto}
         h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro);text-shadow:0 0 15px rgba(212,175,55,0.4)}
@@ -26,14 +26,17 @@
         .hero{text-align:center;padding:60px 20px 80px}
         .hero p{font-size:22px;max-width:700px;margin:20px auto;color:#ddd;line-height:1.6}
 
-        .sobre-dj{display:grid;grid-template-columns:1fr 1.5fr;gap:50px;align-items:center;background:rgba(0,0,0,0.55);padding:45px;border-radius:18px;border:1px solid rgba(212,175,55,0.35);backdrop-filter:blur(10px);margin-bottom:60px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
-        .foto-perfil{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:4px solid var(--ouro);box-shadow:0 0 30px rgba(212,175,55,0.25)}
-        .foto-perfil img{width:100%;height:100%;object-fit:cover;display:block}
-        .sobre-texto h3{color:var(--ouro);font-size:30px;margin-bottom:25px;text-align:center}
-        .sobre-texto p{color:#fff;line-height:2;font-size:19px;text-align:center}
-        .sobre-texto .mtg-destaque{color:var(--vermelho);font-size:28px;font-weight:bold;text-shadow:0 0 10px rgba(229,9,20,0.6);margin-bottom:15px}
-        @media(max-width:768px){.sobre-dj{grid-template-columns:1fr}}
+        /* === SOBRE O ARTISTA === */
+        .sobre-bloco{background:rgba(0,0,0,0.55);padding:40px;border-radius:18px;border:1px solid rgba(212,175,55,0.35);backdrop-filter:blur(10px);margin-bottom:50px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+        .sobre-bloco h2{font-size:38px;text-align:left;margin-bottom:25px;color:var(--ouro);border-bottom:2px solid rgba(212,175,55,0.3);padding-bottom:15px}
+        .sobre-bloco p{color:#fff;line-height:1.9;font-size:17px;text-align:justify}
 
+        /* === IMAGENS DESTAQUE === */
+        .imagem-secao{max-width:650px;margin:0 auto 60px auto;border-radius:16px;overflow:hidden;border:3px solid var(--ouro);box-shadow:0 0 25px rgba(212,175,55,0.25);background:#1a1a1a}
+        .imagem-secao img{width:100%;height:auto;display:block}
+        .imagem-secao h3{text-align:center;color:var(--ouro);padding:15px 0;font-size:22px}
+
+        /* === GALERIA DE FOTOS === */
         .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:60px}
         .galeria-item{background:rgba(0,0,0,0.55);border-radius:16px;overflow:hidden;border:2px solid rgba(212,175,55,0.25);transition:.4s;backdrop-filter:blur(8px)}
         .galeria-item:hover{border-color:var(--ouro);transform:translateY(-8px);box-shadow:0 12px 30px rgba(212,175,55,0.18)}
@@ -44,6 +47,7 @@
         .galeria-info h4{color:var(--ouro);margin-bottom:5px;font-size:18px}
         .aviso-imagem{text-align:center;color:#999;font-size:14px;margin-bottom:30px}
 
+        /* === PACOTES === */
         .pacotes-section{margin-bottom:70px}
         .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-bottom:50px}
         .cartao{background:rgba(0,0,0,0.55);border-radius:16px;padding:32px;border:2px solid rgba(212,175,55,0.25);transition:.4s;backdrop-filter:blur(8px);position:relative}
@@ -74,7 +78,7 @@
         .contato p{margin:10px 0;font-size:19px}
         footer{text-align:center;padding:30px;color:#777;border-top:1px solid rgba(255,255,255,0.1);margin-top:50px;background:rgba(0,0,0,0.5)}
         .aviso-moeda{text-align:center;color:#999;font-size:15px;margin-top:12px}
-        @media(max-width:600px){nav a{margin-left:10px;font-size:14px} .sobre-dj{grid-template-columns:1fr}}
+        @media(max-width:600px){nav a{margin-left:10px;font-size:14px}}
     </style>
 </head>
 <body>
@@ -83,7 +87,9 @@
     <div class="logo">🎧 DJ TCHURI</div>
     <nav>
         <a href="#sobre">Sobre</a>
-        <a href="#galeria">Fotos</a>
+        <a href="#estilos">Estilos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#fotos">Fotos</a>
         <a href="#pacotes">Pacotes</a>
         <a href="#agendar">Agendar</a>
         <a href="#contato">Contato</a>
@@ -91,34 +97,40 @@
 </header>
 
 <section class="hero">
-    <h1>DJ TCHURI — MTG</h1>
-    <p>O som que domina a pista! 🔥 <strong>MTG</strong><br>Valores em <strong>Dólar Americano ($)</strong></p>
+    <h1>DJ TCHURI — OFICIAL</h1>
+    <p>O som que domina a pista! 🔥<br>Valores em <strong>Dólar Americano ($)</strong></p>
 </section>
 
-<!-- 🎤 SOBRE -->
+<!-- 📖 SOBRE O ARTISTA -->
 <section id="sobre">
-    <h2>🎤 Sobre o DJ Tchuri</h2>
-    <div class="sobre-dj">
-        <div class="foto-perfil">
-            <img src="foto-perfil.jpg.JPG" alt="DJ Tchuri">
-        </div>
-        <div class="sobre-texto">
-            <h3>DJ Tchuri — MTG Oficial</h3>
-            <p class="mtg-destaque">🔥 MTG 🔥</p>
-            <p>O peso e a batida que todo evento precisa! <strong>MTG de qualidade, exclusivo e potente!</strong></p>
-            <p style="margin-top:20px; font-size:17px;">
-            ✅ Equipamento profissional<br>
-            ✅ Repertório 100% MTG<br>
-            ✅ Energia em cada apresentação<br>
-            ✅ Todo Brasil e exterior
-            </p>
-        </div>
+    <div class="sobre-bloco">
+        <h2>🎤 SOBRE O ARTISTA</h2>
+        <p>Nascido na cidade de Rio Vermelho MG, DJ Tchuri sempre teve uma forte ligação com a música. Desde pequeno, nas reuniões e resenhas com os amigos, era ele quem assumia o controle do som e animava o ambiente, demonstrando sua paixão pela música e pelo entretenimento.<br><br>
+        Em 2021, mudou-se para os Estados Unidos em busca de novas oportunidades e de uma vida melhor. Foi lá que começou a transformar seu sonho em realidade. Em 2023, iniciou oficialmente sua carreira como DJ, realizando seu primeiro show em uma festa de aniversário. Com muito trabalho, dedicação e talento, DJ Tchuri conquistou espaço na cena musical, se apresentando em diversas baladas e eventos de destaque nos Estados Unidos.<br><br>
+        Com o crescimento da carreira, fundou a Seven Productions, passando também a organizar seus próprios eventos e fortalecer ainda mais sua marca. Seu principal estilo musical é o Funk, porém sua versatilidade permite adaptar a playlist de acordo com o perfil de cada evento e a preferência dos contratantes, garantindo uma experiência única para todos os públicos.<br><br>
+        O grande diferencial de DJ Tchuri está em seu carisma, sua energia contagiante e sua conexão com o público. Sempre inovando e buscando novidades para seus shows, ele se destaca por entregar apresentações animadas, marcantes e repletas de surpresas, tornando cada evento uma experiência inesquecível.</p>
     </div>
 </section>
 
-<!-- 📸 GALERIA — SÓ FOTOS QUE EXISTEM -->
-<section id="galeria">
-    <h2>📸 Fotos e Eventos</h2>
+<!-- 🎵 ESTILOS MUSICAIS -->
+<section id="estilos">
+    <div class="imagem-secao">
+        <h3>🎵 ESTILOS MUSICAIS</h3>
+        <img src="estilos.jpg" alt="Estilos Musicais: Funk, Trap, House, Open Format, Afro Beat, Eletrônica">
+    </div>
+</section>
+
+<!-- 🎉 NOSSOS SERVIÇOS -->
+<section id="servicos">
+    <div class="imagem-secao">
+        <h3>🎉 NOSSOS SERVIÇOS</h3>
+        <img src="servicos.jpg" alt="Serviços: Festas, Aniversários, Casamento, Eventos Corporativo, Bailes e Formaturas">
+    </div>
+</section>
+
+<!-- 📸 FOTOS E EVENTOS -->
+<section id="fotos">
+    <h2>📸 FOTOS E EVENTOS</h2>
     <p class="aviso-imagem">Registros de shows e eventos do DJ Tchuri</p>
     <div class="galeria">
         <div class="galeria-item">
@@ -139,10 +151,10 @@
         </div>
         <div class="galeria-item">
             <div class="galeria-img">
-                <img src="foto3.jpg.JPG" alt="Balada MTG">
+                <img src="foto3.jpg.JPG" alt="Balada">
             </div>
             <div class="galeria-info">
-                <h4>🔥 Balada MTG</h4>
+                <h4>🔥 Balada</h4>
             </div>
         </div>
     </div>
@@ -150,16 +162,16 @@
 
 <!-- 📦 PACOTES -->
 <section id="pacotes" class="pacotes-section">
-    <h2>📋 Pacotes de Contratação</h2>
+    <h2>📋 PACOTES DE CONTRATAÇÃO</h2>
     
     <div class="destaques">
         <div class="cartao">
-            <h3>📦 BÁSICO — MTG</h3>
+            <h3>📦 BÁSICO</h3>
             <ul>
                 <li>🔊 1 Caixa de Som</li>
                 <li>🎤 1 Microfone Sem Fio</li>
                 <li>💡 Luz Profissional</li>
-                <li>🎶 Setlist MTG Completo</li>
+                <li>🎶 Setlist Completo</li>
                 <li>⏱️ 4 Horas de Evento</li>
                 <li>➕ Hora extra: $100</li>
             </ul>
@@ -169,13 +181,13 @@
 
         <div class="cartao master">
             <span class="tag-mestre">⭐ MAIS VENDIDO</span>
-            <h3>👑 MASTER — MTG COMPLETO</h3>
+            <h3>👑 MASTER COMPLETO</h3>
             <ul>
                 <li>🔊 2 Caixas de Som</li>
                 <li>🎤 2 Microfones Sem Fio</li>
                 <li>💡 Luz + Laser</li>
                 <li>🎉 Confete + Fumaça</li>
-                <li>🎶 Setlist MTG Exclusivo</li>
+                <li>🎶 Setlist Exclusivo</li>
                 <li>⏱️ 6 Horas de Evento</li>
                 <li>➕ Hora extra: $100</li>
             </ul>
@@ -184,12 +196,12 @@
         </div>
 
         <div class="cartao">
-            <h3>📦 INTERMEDIÁRIO — MTG</h3>
+            <h3>📦 INTERMEDIÁRIO</h3>
             <ul>
                 <li>🔊 2 Caixas de Som</li>
                 <li>🎤 2 Microfones Sem Fio</li>
                 <li>💡 Luz Profissional</li>
-                <li>🎶 Setlist MTG Completo</li>
+                <li>🎶 Setlist Completo</li>
                 <li>⏱️ 5 Horas de Evento</li>
                 <li>➕ Hora extra: $100</li>
             </ul>
@@ -199,7 +211,7 @@
     </div>
 
     <div class="extras">
-        <h3>✨ Extras Adicionais</h3>
+        <h3>✨ EXTRAS ADICIONAIS</h3>
         <div class="extras-lista">
             <div class="extra-item">🎉 Confete — $75</div>
             <div class="extra-item">💨 Fumaça — $50</div>
@@ -210,7 +222,7 @@
 
 <!-- 📅 AGENDAMENTO -->
 <section id="agendar">
-    <h2>📅 Agende seu Evento</h2>
+    <h2>📅 AGENDE SEU EVENTO</h2>
     <form id="form-agendamento">
         <div class="grupo">
             <label>Nome Completo *</label>
@@ -224,9 +236,9 @@
             <label>Pacote *</label>
             <select id="pacote" required>
                 <option value="">Selecione...</option>
-                <option>Básico — $600 (4h) MTG</option>
-                <option>Intermediário — $800 (5h) MTG</option>
-                <option>Master — $1.000 (6h) MTG ⭐</option>
+                <option>Básico — $600 (4h)</option>
+                <option>Intermediário — $800 (5h)</option>
+                <option>Master — $1.000 (6h) ⭐</option>
             </select>
         </div>
         <div class="grupo">
@@ -257,13 +269,13 @@
 </section>
 
 <section id="contato" class="contato">
-    <h2>📞 Contato</h2>
+    <h2>📞 CONTATO</h2>
     <p><strong>📱 WhatsApp:</strong> +1 (774) 822-0069</p>
-    <p><strong>🎧 DJ Tchuri — MTG Oficial | SE7EN Productions</strong></p>
+    <p><strong>🎧 DJ Tchuri — Oficial | Seven Productions</strong></p>
 </section>
 
 <footer>
-    <p>© 2026 DJ Tchuri — MTG. Todos os direitos reservados 🔥</p>
+    <p>© 2026 DJ Tchuri — Oficial. Todos os direitos reservados 🔥</p>
 </footer>
 
 <script>
@@ -281,7 +293,7 @@ form.addEventListener('submit', function(e){
     const fumaca = document.getElementById('fumaca').checked ? '✅ Sim ($50)' : '❌ Não';
     const detalhes = document.getElementById('detalhes').value || 'Nenhum';
 
-    const mensagem = `🎵 AGENDAMENTO — DJ TCHURI | MTG 🔥
+    const mensagem = `🎵 AGENDAMENTO — DJ TCHURI 🔥
 
 👤 Nome: ${nome}
 📱 Telefone: ${telefone}
@@ -299,7 +311,7 @@ form.addEventListener('submit', function(e){
 ${detalhes}
 
 ---
-DJ Tchuri MTG — Agendamento via Site Oficial`;
+DJ Tchuri — Agendamento via Site Oficial`;
 
     const numero = '17748220069';
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
