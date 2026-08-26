@@ -10,7 +10,7 @@
         
         body{
             background: linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.85)), 
-                        url('foto-perfil.jpg.JPG') no-repeat center center fixed;
+                        url('foto-perfil.jpg') no-repeat center center fixed;
             background-size: cover;
             color:#fff;
             min-height:100vh;
@@ -23,12 +23,16 @@
         section{padding:60px 5%;max-width:1200px;margin:0 auto}
         h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro);text-shadow:0 0 15px rgba(212,175,55,0.4)}
         h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--ouro)}
-        .hero{text-align:center;padding:60px 20px 80px}
+        .hero{text-align:center;padding:60px 20px 40px}
         .hero p{font-size:22px;max-width:700px;margin:20px auto;color:#ddd;line-height:1.6}
 
         .imagem-secao{max-width:650px;margin:0 auto 60px auto;border-radius:16px;overflow:hidden;border:3px solid var(--ouro);box-shadow:0 0 25px rgba(212,175,55,0.25);background:#1a1a1a}
         .imagem-secao img{width:100%;height:auto;display:block}
-        .imagem-secao h3{text-align:center;color:var(--ouro);padding:15px 0;font-size:22px}
+
+        .servicos-texto{max-width:650px;margin:0 auto 60px auto;padding:30px;background:rgba(0,0,0,0.55);border-radius:16px;border:2px solid var(--ouro);backdrop-filter:blur(8px)}
+        .servicos-texto h2{color:var(--ouro);margin-bottom:20px;text-align:center}
+        .servicos-texto ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+        .servicos-texto li{padding:12px 15px;background:rgba(212,175,55,0.1);border-radius:8px;border-left:3px solid var(--ouro);font-size:16px}
 
         .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:60px}
         .galeria-item{background:rgba(0,0,0,0.55);border-radius:16px;overflow:hidden;border:2px solid rgba(212,175,55,0.25);transition:.4s;backdrop-filter:blur(8px)}
@@ -38,7 +42,6 @@
         .galeria-item:hover .galeria-img img{transform:scale(1.05)}
         .galeria-info{padding:18px;text-align:center}
         .galeria-info h4{color:var(--ouro);margin-bottom:5px;font-size:18px}
-        .aviso-imagem{text-align:center;color:#999;font-size:14px;margin-bottom:30px}
 
         .pacotes-section{margin-bottom:70px}
         .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-bottom:50px}
@@ -103,21 +106,28 @@
 <!-- 🎵 ESTILOS MUSICAIS -->
 <section id="estilos">
     <div class="imagem-secao">
-        <img src="estilos.jpg.JPG" alt="Estilos Musicais: Funk, Trap, House, Open Format, Afro Beat, Eletrônica">
+        <img src="estilos.jpg.JPG" alt="Estilos Musicais: Funk, Trap, House, Open Format, Afro Beat, Eletrônica, MTG">
     </div>
 </section>
 
-<!-- 🎉 NOSSOS SERVIÇOS — NOME CORRIGIDO SEM Ç -->
+<!-- 🎉 NOSSOS SERVIÇOS — SEM IMAGEM, SEM ERRO, TEXTO PROFISSIONAL -->
 <section id="servicos">
-    <div class="imagem-secao">
-        <img src="servi%C3%A7os.jpg.JPG" alt="Nossos Serviços"> Festas, Aniversários, Casamento, Eventos Corporativo, Bailes e Formaturas">
+    <div class="servicos-texto">
+        <h2>🎉 NOSSOS SERVIÇOS</h2>
+        <ul>
+            <li>🎊 Festas</li>
+            <li>🎂 Aniversários</li>
+            <li>💍 Casamentos</li>
+            <li>🏢 Eventos Corporativos</li>
+            <li>🎶 Bailes</li>
+            <li>🎓 Formaturas</li>
+        </ul>
     </div>
 </section>
 
 <!-- 📸 FOTOS E EVENTOS -->
 <section id="fotos">
     <h2>📸 FOTOS E EVENTOS</h2>
-    <p class="aviso-imagem">Registros de shows e eventos do DJ Tchuri</p>
     <div class="galeria">
         <div class="galeria-item">
             <div class="galeria-img">
