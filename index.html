@@ -3,290 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ Tchuri — Oficial</title>
+    <title>DJ Tchuri — Agende Seu Evento</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-        :root{--preto:#000;--ouro:#d4af37;--ouro-claro:#f5d742;--branco:#fff;--vermelho:#e50914}
-        
-        body{
-            background:
-    linear-gradient(rgba(0,0,0,0.78), rgba(0,0,0,0.85)),
-    url('foto-perfil.jpg.JPG') no-repeat center center fixed;
-            background-size: cover;
-            color:#fff;
-            min-height:100vh;
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        :root {
+            --dourado: #FFD700;
+            --dourado-claro: #FFF176;
+            --preto: #000;
+            --escuro: #121212;
+            --roxo: #6A0DAD;
+            --branco: #fff;
+        }
+        body {
+            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #000 100%);
+            color: var(--branco);
+            min-height: 100vh;
         }
 
-        header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(212,175,55,0.3);flex-wrap:wrap;gap:15px;position:sticky;top:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);z-index:999}
-        .logo{font-size:28px;font-weight:bold;color:var(--ouro);text-shadow:0 0 12px rgba(212,175,55,0.5)}
-        nav a{color:#fff;margin-left:15px;text-decoration:none;transition:.3s;font-size:15px}
-        nav a:hover{color:var(--ouro);text-shadow:0 0 6px rgba(212,175,55,0.4)}
-        section{padding:60px 5%;max-width:1200px;margin:0 auto}
-        h1{font-size:42px;text-align:center;margin-bottom:10px;color:var(--ouro);text-shadow:0 0 15px rgba(212,175,55,0.4)}
-        h2{font-size:28px;margin-bottom:30px;text-align:center;color:var(--ouro)}
-        .hero{text-align:center;padding:60px 20px 40px}
-        .hero p{font-size:22px;max-width:700px;margin:20px auto;color:#ddd;line-height:1.6}
+        header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: var(--dourado);
+            text-shadow: 0 0 20px var(--dourado-claro), 0 0 40px var(--dourado);
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+        .subtitulo {
+            color: var(--dourado-claro);
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
 
-        .imagem-secao{max-width:650px;margin:0 auto 60px auto;border-radius:16px;overflow:hidden;border:3px solid var(--ouro);box-shadow:0 0 25px rgba(212,175,55,0.25);background:#1a1a1a}
-        .imagem-secao img{width:100%;height:auto;display:block}
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        nav a:hover, nav a.ativo {
+            color: var(--dourado);
+            background: rgba(255, 215, 0, 0.1);
+            text-shadow: 0 0 10px var(--dourado);
+        }
 
-        .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:60px}
-        .galeria-item{background:rgba(0,0,0,0.55);border-radius:16px;overflow:hidden;border:2px solid rgba(212,175,55,0.25);transition:.4s;backdrop-filter:blur(8px)}
-        .galeria-item:hover{border-color:var(--ouro);transform:translateY(-8px);box-shadow:0 12px 30px rgba(212,175,55,0.18)}
-        .galeria-img{width:100%;aspect-ratio:4/3;overflow:hidden;background:#1a1a1a}
-        .galeria-img img{width:100%;height:100%;object-fit:cover;transition:.4s;display:block}
-        .galeria-item:hover .galeria-img img{transform:scale(1.05)}
-        .galeria-info{padding:18px;text-align:center}
-        .galeria-info h4{color:var(--ouro);margin-bottom:5px;font-size:18px}
+        section {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+            color: var(--dourado);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            text-shadow: 0 0 10px var(--dourado);
+        }
 
-        .pacotes-section{margin-bottom:70px}
-        .destaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-bottom:50px}
-        .cartao{background:rgba(0,0,0,0.55);border-radius:16px;padding:32px;border:2px solid rgba(212,175,55,0.25);transition:.4s;backdrop-filter:blur(8px);position:relative}
-        .cartao:hover{border-color:var(--ouro);transform:translateY(-8px);box-shadow:0 12px 30px rgba(212,175,55,0.18)}
-        .cartao.master{border-color:var(--ouro);transform:scale(1.03);box-shadow:0 0 35px rgba(212,175,55,0.2)}
-        .cartao h3{font-size:26px;color:var(--ouro);margin-bottom:18px;text-align:center}
-        .cartao ul{list-style:none;margin-bottom:20px}
-        .cartao li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1);font-size:15px}
-        .cartao li:last-child{border:none}
-        .preco-destaque{font-size:40px;font-weight:bold;text-align:center;margin:18px 0;color:var(--ouro-claro);text-shadow:0 0 10px rgba(245,215,66,0.3)}
-        .btn-pacote{display:block;text-align:center;padding:14px;background:linear-gradient(90deg,#d4af37,#b8860b);color:#000;font-weight:bold;border-radius:10px;text-decoration:none;transition:.3s;margin-top:12px;font-size:17px}
-        .btn-pacote:hover{background:var(--ouro-claro);box-shadow:0 0 20px rgba(212,175,55,0.35)}
-        .tag-mestre{position:absolute;top:0;right:0;background:var(--ouro);color:#000;padding:5px 18px;font-weight:bold;border-radius:0 16px 0 16px}
+        /* 🎤 SOBRE O ARTISTA — TEXTO QUE VOCÊ ENVIOU */
+        .sobre-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5rem;
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+        .sobre-imagem {
+            flex: 0 0 320px;
+        }
+        .sobre-imagem img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 3px solid var(--dourado);
+            box-shadow: 0 0 20px rgba(255,215,0,0.3);
+        }
+        .sobre-texto {
+            flex: 1;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .sobre-texto h2 {
+            font-size: 2.5rem;
+            color: var(--dourado);
+            text-align: center;
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .dourado { color: var(--dourado); font-weight: bold; }
 
-        .extras{background:rgba(0,0,0,0.55);padding:30px;border-radius:14px;border:1px solid rgba(212,175,55,0.3);margin-top:35px;backdrop-filter:blur(8px)}
-        .extras h3{color:var(--ouro);margin-bottom:18px;text-align:center}
-        .extras-lista{display:flex;justify-content:space-around;flex-wrap:wrap;gap:15px}
-        .extra-item{background:rgba(255,255,255,0.08);padding:14px 24px;border-radius:10px;text-align:center;border:1px solid rgba(255,255,255,0.1)}
+        /* 🎵 ESTILOS MUSICAIS — EXATAMENTE COMO NA IMAGEM */
+        .estilos-container {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,215,0,0.2);
+            text-align: center;
+        }
+        .estilos-titulo {
+            font-size: 2.2rem;
+            color: var(--dourado);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--dourado);
+        }
+        .estilos-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        .estilo-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,215,0,0.1);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid var(--dourado);
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .estilo-check {
+            background: var(--dourado);
+            color: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
 
-        form{background:rgba(0,0,0,0.55);padding:35px;border-radius:16px;border:1px solid rgba(212,175,55,0.3);max-width:620px;margin:0 auto;backdrop-filter:blur(8px)}
-        .grupo{margin-bottom:20px}
-        label{display:block;margin-bottom:8px;color:var(--ouro);font-weight:500}
-        input,select,textarea{width:100%;padding:14px;border-radius:8px;border:none;background:rgba(255,255,255,0.08);color:#fff;font-size:16px;border:1px solid rgba(255,255,255,0.15)}
-        input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ouro)}
-        button{width:100%;padding:16px;background:#25d366;color:#fff;font-weight:bold;font-size:19px;border:none;border-radius:10px;cursor:pointer;transition:.3s}
-        button:hover{background:#1da851;box-shadow:0 0 20px rgba(37,211,102,0.25)}
-        .contato{text-align:center;margin-top:50px;padding:30px;background:rgba(0,0,0,0.55);border-radius:16px;border:1px solid rgba(212,175,55,0.3);backdrop-filter:blur(8px)}
-        .contato p{margin:10px 0;font-size:19px}
-        footer{text-align:center;padding:30px;color:#777;border-top:1px solid rgba(255,255,255,0.1);margin-top:50px;background:rgba(0,0,0,0.5)}
-        .aviso-moeda{text-align:center;color:#999;font-size:15px;margin-top:12px}
-        @media(max-width:600px){nav a{margin-left:10px;font-size:14px}}
+        /* CARROSSEL */
+        .carrossel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+        .carrossel {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 400%;
+        }
+        .carrossel-slide {
+            width: 25%;
+            flex-shrink: 0;
+        }
+        .carrossel-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            color: var(--dourado);
+            border: 2px solid var(--dourado);
+            font-size: 2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: 0.3s;
+        }
+        .carrossel-btn:hover {
+            background: var(--dourado);
+            color: #000;
+        }
+        .btn-esq { left: 15px; }
+        .btn-dir { right: 15px; }
+        .carrossel-indicadores {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+        }
+        .indicador {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,215,0,0.3);
+            cursor: pointer;
+            border: 2px solid var(--dourado);
+        }
+        .indicador.ativo {
+            background: var(--dourado);
+            box-shadow: 0 0 10px var(--dourado);
+        }
+
+        .pacotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .pacote-card {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .pacote-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--dourado);
+            box-shadow: 0 0 25px rgba(255,215,0,0.3);
+        }
+        .pacote-card h3 {
+            color: var(--dourado);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .preco {
+            font-size: 2.2rem;
+            color: var(--dourado-claro);
+            font-weight: bold;
+            margin: 1rem 0;
+            text-shadow: 0 0 10px var(--dourado);
+        }
+        .pacote-card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 1rem;
+        }
+        .pacote-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
+        }
+        .pacote-card li::before {
+            content: "✓ ";
+            color: var(--dourado);
+            font-weight: bold;
+        }
+        .outros-valores {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            color: var(--dourado-claro);
+            font-style: italic;
+        }
+
+        .agenda-box {
+            background: rgba(255,255,255,0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid rgba(255,215,0,0.3);
+            text-align: center;
+        }
+        .agenda-box p { font-size: 1.2rem; margin-bottom: 1rem; line-height: 1.8; }
+        .btn-contato {
+            display: inline-block;
+            background: linear-gradient(90deg, #B8860B, #FFD700, #B8860B);
+            color: #000;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(255,215,0,0.5);
+            transition: 0.3s;
+            margin: 0.5rem;
+        }
+        .btn-contato:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255,215,0,0.8);
+        }
+        .whatsapp-icon { font-size: 1.5rem; margin-right: 10px; }
+        .email-link {
+            color: var(--dourado);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            color: #aaa;
+            margin-top: 3rem;
+        }
+        footer span { color: var(--dourado); font-weight: bold; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .sobre-container { flex-direction: column; text-align: center; }
+            .sobre-imagem { flex: none; width: 260px; }
+            .carrossel-slide img { height: 300px; }
+            nav { gap: 0.5rem; }
+            nav a { font-size: 0.95rem; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">🎧 DJ TCHURI</div>
+    <header>
+        <h1>DJ TCHURI</h1>
+        <p class="subtitulo">🎧 O som que move sua festa — Profissionalismo e energia em cada evento</p>
+    </header>
+
     <nav>
-        <a href="#sobre">Sobre</a>
+        <a href="#sobre" class="ativo">Sobre</a>
         <a href="#estilos">Estilos</a>
-        <a href="#fotos">Fotos</a>
+        <a href="#fotos">Eventos</a>
         <a href="#pacotes">Pacotes</a>
-        <a href="#agendar">Agendar</a>
-        <a href="#contato">Contato</a>
+        <a href="#agenda">Agendar</a>
     </nav>
-</header>
 
-<section class="hero">
-    <h1>DJ TCHURI — OFICIAL</h1>
-    <p>O som que domina a pista! 🔥<br>Valores em <strong>Dólar Americano ($)</strong></p>
-</section>
-
-<!-- 📖 SOBRE O ARTISTA -->
-<section id="sobre">
-    <div class="imagem-secao">
-        <img src="Sobre.jpg.JPG" alt="Sobre o Artista — DJ Tchuri">
-    </div>
-</section>
-
-<!-- 🎵 ESTILOS MUSICAIS -->
-<section id="estilos">
-    <div class="imagem-secao">
-        <img src="estilos.jpg.JPG" alt="Estilos Musicais: Funk, Trap, House, Open Format, Afro Beat, Eletrônica, MTG">
-    </div>
-</section>
-
-<!-- 📸 FOTOS E EVENTOS -->
-<section id="fotos">
-    
-    <div class="galeria">
-       
-        <div class="galeria-item">
-            <div class="galeria-img">
-                <img src="foto2.jpg.PNG" alt="Evento Privado">
+    <!-- 🎤 SOBRE O ARTISTA — TEXTO QUE VOCÊ ENVIOU -->
+    <section id="sobre">
+        <div class="sobre-container">
+            <div class="sobre-imagem">
+                <img src="sobre.jpg" alt="DJ Tchuri — Foto de Perfil">
             </div>
-            <div class="galeria-info">
-                <h4>💒 Evento Privado</h4>
+            <div class="sobre-texto">
+                <h2>SOBRE O ARTISTA</h2>
+                <p><span class="dourado">NASCIDO NA CIDADE DE RIO VERMELHO - MG</span>, DJ Tchuri sempre teve uma forte ligação com a música. Desde pequeno, nas reuniões e resenhas com os amigos, era ele quem assumia o controle do som e animava o ambiente, demonstrando sua paixão pela música e pelo entretenimento.</p>
+                <br>
+                <p>Em 2021, mudou-se para os Estados Unidos em busca de novas oportunidades e de uma vida melhor. Foi lá que começou a transformar seu sonho em realidade. Em 2023, iniciou oficialmente sua carreira como DJ, realizando seu primeiro show em uma festa de aniversário. Com muito trabalho, dedicação e talento, DJ Tchuri conquistou espaço na cena musical, se apresentando em diversas baladas e eventos de destaque nos Estados Unidos.</p>
+                <br>
+                <p>Com o crescimento da carreira, fundou a Seven Productions, passando também a organizar seus próprios eventos e fortalecer ainda mais sua marca. Seu principal estilo musical é o <span class="dourado">Funk</span>, porém sua versatilidade permite adaptar a playlist de acordo com o perfil de cada evento e a preferência dos contratantes, garantindo uma experiência única para todos os públicos.</p>
+                <br>
+                <p>O grande diferencial de DJ Tchuri está em seu carisma, sua energia contagiante e sua conexão com o público. Sempre inovando e buscando novidades para seus shows, ele se destaca por entregar apresentações animadas, marcantes e repletas de surpresas, tornando cada evento uma experiência <span class="dourado">inesquecível</span>.</p>
             </div>
         </div>
-        <div class="galeria-item">
-            <div class="galeria-img">
-                <img src="foto3.jpg.JPG" alt="Balada">
-            </div>
-            <div class="galeria-info">
-                <h4>🔥 Balada</h4>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- 📦 PACOTES -->
-<section id="pacotes" class="pacotes-section">
-    <h2>📋 PACOTES DE CONTRATAÇÃO</h2>
-    
-    <div class="destaques">
-        <div class="cartao">
-            <h3>📦 BÁSICO</h3>
-            <ul>
-                <li>🔊 1 Caixa de Som</li>
-                <li>🎤 1 Microfone Sem Fio</li>
-                <li>💡 Luz Profissional</li>
-                <li>🎶 Setlist Completo</li>
-                <li>⏱️ 4 Horas de Evento</li>
-                <li>➕ Hora extra: $100</li>
-            </ul>
-            <p class="preco-destaque">$ 600</p>
-            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
-        </div>
-
-        <div class="cartao master">
-            <span class="tag-mestre">⭐ MAIS VENDIDO</span>
-            <h3>👑 MASTER COMPLETO</h3>
-            <ul>
-                <li>🔊 2 Caixas de Som</li>
-                <li>🎤 2 Microfones Sem Fio</li>
-                <li>💡 Luz + Laser</li>
-                <li>🎉 Confete + Fumaça</li>
-                <li>🎶 Setlist Exclusivo</li>
-                <li>⏱️ 6 Horas de Evento</li>
-                <li>➕ Hora extra: $100</li>
-            </ul>
-            <p class="preco-destaque">$ 1.000</p>
-            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
-        </div>
-
-        <div class="cartao">
-            <h3>📦 INTERMEDIÁRIO</h3>
-            <ul>
-                <li>🔊 2 Caixas de Som</li>
-                <li>🎤 2 Microfones Sem Fio</li>
-                <li>💡 Luz Profissional</li>
-                <li>🎶 Setlist Completo</li>
-                <li>⏱️ 5 Horas de Evento</li>
-                <li>➕ Hora extra: $100</li>
-            </ul>
-            <p class="preco-destaque">$ 800</p>
-            <a href="#agendar" class="btn-pacote">✅ Contratar</a>
-        </div>
-    </div>
-
-    <div class="extras">
-        <h3>✨ EXTRAS ADICIONAIS</h3>
-        <div class="extras-lista">
-            <div class="extra-item">🎉 Confete — $75</div>
-            <div class="extra-item">💨 Fumaça — $50</div>
-        </div>
-    </div>
-    <p class="aviso-moeda">💱 Valores em Dólar Americano (USD)</p>
-</section>
-
-<!-- 📅 AGENDAMENTO -->
-<section id="agendar">
-    <h2>📅 AGENDE SEU EVENTO</h2>
-    <form id="form-agendamento">
-        <div class="grupo">
-            <label>Nome Completo *</label>
-            <input type="text" id="nome" required>
-        </div>
-        <div class="grupo">
-            <label>WhatsApp *</label>
-            <input type="tel" id="telefone" required placeholder="+1 (774) 822-0069">
-        </div>
-        <div class="grupo">
-            <label>Pacote *</label>
-            <select id="pacote" required>
-                <option value="">Selecione...</option>
-                <option>Básico — $600 (4h)</option>
-                <option>Intermediário — $800 (5h)</option>
-                <option>Master — $1.000 (6h) ⭐</option>
-            </select>
-        </div>
-        <div class="grupo">
-            <label>Data do Evento *</label>
-            <input type="date" id="data" required>
-        </div>
-        <div class="grupo">
-            <label>Horário *</label>
-            <input type="time" id="hora" required>
-        </div>
-        <div class="grupo">
-            <label>Cidade / Local *</label>
-            <input type="text" id="cidade" required>
-        </div>
-        <div class="grupo">
-            <label>Extras:</label>
-            <div style="display:flex; gap:15px; flex-wrap:wrap; padding:8px 0;">
-                <label style="display:inline; color:#fff;"><input type="checkbox" id="confete"> Confete ($75)</label>
-                <label style="display:inline; color:#fff;"><input type="checkbox" id="fumaca"> Fumaça ($50)</label>
+    <!-- 🎵 ESTILOS MUSICAIS — EXATAMENTE COMO NA IMAGEM -->
+    <section id="estilos">
+        <div class="estilos-container">
+            <h2 class="estilos-titulo">Estilos Musicais</h2>
+            <div class="estilos-lista">
+                <div class="estilo-item"><span class="estilo-check">✓</span> FUNK</div>
+                <div class="estilo-item"><span class="estilo-check">✓</span> TRAP</div>
+                <div class="estilo-item"><span class="estilo-check">✓</span> HOUSE</div>
+                <div class="estilo-item"><span class="estilo-check">✓</span> OPEN FORMAT</div>
+                <div class="estilo-item"><span class="estilo-check">✓</span> AFRO BEAT</div>
+                <div class="estilo-item"><span class="estilo-check">✓</span> ELETRÔNICA</div>
             </div>
         </div>
-        <div class="grupo">
-            <label>Observações</label>
-            <textarea id="detalhes" rows="3" placeholder="Tipo de evento, pedidos especiais..."></textarea>
+    </section>
+
+    <!-- 📸 FOTOS DE EVENTOS -->
+    <section id="fotos">
+        <h2>📸 Momentos dos Eventos</h2>
+        <div class="carrossel-container">
+            <div class="carrossel">
+                <div class="carrossel-slide">
+                    <img src="foto1.jpg" alt="DJ Tchuri ao vivo — Festa com público">
+                </div>
+                <div class="carrossel-slide">
+                    <img src="foto2.jpg" alt="DJ Tchuri — Palco Favela Montada">
+                </div>
+                <div class="carrossel-slide">
+                    <img src="foto3.jpg" alt="Público em show do DJ Tchuri">
+                </div>
+                <div class="carrossel-slide">
+                    <img src="foto4.jpg" alt="DJ Tchuri — Evento grande">
+                </div>
+            </div>
+            <button class="carrossel-btn btn-esq" onclick="moverCarrossel(-1)">&#8249;</button>
+            <button class="carrossel-btn btn-dir" onclick="moverCarrossel(1)">&#8250;</button>
+            <div class="carrossel-indicadores">
+                <div class="indicador ativo" onclick="irParaSlide(0)"></div>
+                <div class="indicador" onclick="irParaSlide(1)"></div>
+                <div class="indicador" onclick="irParaSlide(2)"></div>
+                <div class="indicador" onclick="irParaSlide(3)"></div>
+            </div>
         </div>
-        <button type="submit">💬 ENVIAR PELO WHATSAPP</button>
-    </form>
-</section>
+    </section>
 
-<section id="contato" class="contato">
-    <h2>📞 CONTATO</h2>
-    <p><strong>📱 WhatsApp:</strong> +1 (774) 822-0069</p>
-    <p><strong>🎧 DJ Tchuri — Oficial | Seven Productions</strong></p>
-</section>
+    <!-- 💰 PACOTES + FRASE DE VALORES -->
+    <section id="pacotes">
+        <h2>💰 Pacotes de Contratação</h2>
+        <div class="pacotes-grid">
+            <div class="pacote-card">
+                <h3>🎵 Evento de 2 Horas</h3>
+                <p class="preco">$600 USD</p>
+                <ul>
+                    <li>2 horas de apresentação</li>
+                    <li>Equipamento incluso</li>
+                    <li>Repertório personalizado</li>
+                    <li>Atendimento dedicado</li>
+                </ul>
+            </div>
+            <div class="pacote-card">
+                <h3>🎶 Evento de 4 Horas</h3>
+                <p class="preco">$1.100 USD</p>
+                <ul>
+                    <li>4 horas de apresentação</li>
+                    <li>Equipamento completo</li>
+                    <li>Repertório personalizado</li>
+                    <li>Animação e interação</li>
+                    <li>Preferência de agendamento</li>
+                </ul>
+            </div>
+            <div class="pacote-card">
+                <h3>🔥 Evento Completo</h3>
+                <p class="preco">$1.500 USD</p>
+                <ul>
+                    <li>6 horas de evento</li>
+                    <li>Equipamento premium</li>
+                    <li>Repertório exclusivo</li>
+                    <li>Animação completa</li>
+                    <li>Agendamento prioritário</li>
+                    <li>Personalização total</li>
+                </ul>
+            </div>
+        </div>
+        <p class="outros-valores">📌 Outros valores ao combinar — consulte para orçamento personalizado!</p>
+    </section>
 
-<footer>
-    <p>© 2026 DJ Tchuri — Oficial. Todos os direitos reservados 🔥</p>
-</footer>
+    <!-- 📅 AGENDAMENTO + E-MAIL -->
+    <section id="agenda">
+        <h2>📅 Agende Seu Evento</h2>
+        <div class="agenda-box">
+            <p>Quer garantir <strong>DJ Tchuri</strong> no seu evento? Fale conosco e confirme a data!</p>
+            <p><strong>📞 Telefone/WhatsApp:</strong> +1 (774) 822-0069</p>
+            <p><strong>📧 E-mail para agendamento:</strong> <a href="mailto:Brennoferreira65@yahoo.com" class="email-link">Brennoferreira65@yahoo.com</a></p>
+            <p>Envie uma mensagem ou e-mail informando data, tipo de evento e duração. Respondo rápido! ✅</p>
+            <a href="https://wa.me/17748220069" target="_blank" class="btn-contato">
+                <span class="whatsapp-icon">💬</span> WhatsApp
+            </a>
+            <a href="mailto:Brennoferreira65@yahoo.com" class="btn-contato">
+                📧 Enviar E-mail
+            </a>
+        </div>
+    </section>
 
-<script>
-const form = document.getElementById('form-agendamento');
-form.addEventListener('submit', function(e){
-    e.preventDefault();
-    
-    const nome = document.getElementById('nome').value;
-    const telefone = document.getElementById('telefone').value;
-    const pacote = document.getElementById('pacote').value;
-    const data = document.getElementById('data').value;
-    const hora = document.getElementById('hora').value;
-    const cidade = document.getElementById('cidade').value;
-    const confete = document.getElementById('confete').checked ? '✅ Sim ($75)' : '❌ Não';
-    const fumaca = document.getElementById('fumaca').checked ? '✅ Sim ($50)' : '❌ Não';
-    const detalhes = document.getElementById('detalhes').value || 'Nenhum';
+    <footer>
+        <p>© 2026 <span>DJ Tchuri</span> — Todos os direitos reservados.</p>
+        <p>Contato: <span>+1 (774) 822-0069</span> | <span>Brennoferreira65@yahoo.com</span></p>
+    </footer>
 
-    const mensagem = `🎵 AGENDAMENTO — DJ TCHURI 🔥
+    <script>
+        let slideAtual = 0;
+        const totalSlides = 4;
+        const carrossel = document.querySelector('.carrossel');
+        const indicadores = document.querySelectorAll('.indicador');
 
-👤 Nome: ${nome}
-📱 Telefone: ${telefone}
+        function atualizarCarrossel() {
+            carrossel.style.transform = `translateX(-${slideAtual * 25}%)`;
+            indicadores.forEach((ind, i) => ind.classList.toggle('ativo', i === slideAtual));
+        }
 
-📦 Pacote: ${pacote}
-📅 Data: ${data}
-⏰ Horário: ${hora}
-📍 Local: ${cidade}
+        function moverCarrossel(direcao) {
+            slideAtual = (slideAtual + direcao + totalSlides) % totalSlides;
+            atualizarCarrossel();
+        }
 
-✨ Extras:
-• Confete: ${confete}
-• Fumaça: ${fumaca}
+        function irParaSlide(indice) {
+            slideAtual = indice;
+            atualizarCarrossel();
+        }
 
-📝 Observações:
-${detalhes}
-
----
-DJ Tchuri — Agendamento via Site Oficial`;
-
-    const numero = '17748220069';
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-});
-</script>
+        setInterval(() => moverCarrossel(1), 5000);
+    </script>
 
 </body>
 </html>
+
