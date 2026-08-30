@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -76,7 +77,7 @@
             text-shadow: 0 0 10px var(--dourado);
         }
 
-        /* 🎤 SOBRE O ARTISTA — TEXTO QUE VOCÊ ENVIOU */
+        /* 🎤 SOBRE O ARTISTA — Texto que você enviou */
         .sobre-container {
             display: flex;
             align-items: flex-start;
@@ -113,7 +114,7 @@
         }
         .dourado { color: var(--dourado); font-weight: bold; }
 
-        /* 🎵 ESTILOS MUSICAIS — EXATAMENTE COMO NA IMAGEM */
+        /* 🎵 ESTILOS MUSICAIS — Exatamente como na imagem */
         .estilos-container {
             background: rgba(255,255,255,0.05);
             padding: 2.5rem;
@@ -160,7 +161,7 @@
             flex-shrink: 0;
         }
 
-        /* CARROSSEL */
+        /* CARROSSEL DE FOTOS */
         .carrossel-container {
             position: relative;
             overflow: hidden;
@@ -224,6 +225,7 @@
             box-shadow: 0 0 10px var(--dourado);
         }
 
+        /* PACOTES */
         .pacotes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -276,32 +278,64 @@
             font-style: italic;
         }
 
+        /* 📅 AGENDAMENTO — FORMULÁRIO COMO ERA ANTES */
         .agenda-box {
             background: rgba(255,255,255,0.05);
             padding: 2.5rem;
             border-radius: 15px;
             border: 2px solid rgba(255,215,0,0.3);
-            text-align: center;
         }
-        .agenda-box p { font-size: 1.2rem; margin-bottom: 1rem; line-height: 1.8; }
-        .btn-contato {
-            display: inline-block;
+        .agenda-box p { font-size: 1.2rem; margin-bottom: 1.5rem; text-align: center; }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            color: var(--dourado);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid rgba(255,215,0,0.3);
+            background: rgba(0,0,0,0.5);
+            color: var(--branco);
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--dourado);
+            box-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+        .btn-enviar {
+            display: block;
+            width: 100%;
             background: linear-gradient(90deg, #B8860B, #FFD700, #B8860B);
             color: #000;
             font-weight: bold;
             font-size: 1.3rem;
-            padding: 1rem 2.5rem;
+            padding: 1rem;
+            border: none;
             border-radius: 50px;
-            text-decoration: none;
+            cursor: pointer;
             box-shadow: 0 0 20px rgba(255,215,0,0.5);
             transition: 0.3s;
-            margin: 0.5rem;
+            margin-top: 1rem;
         }
-        .btn-contato:hover {
-            transform: scale(1.05);
+        .btn-enviar:hover {
+            transform: scale(1.02);
             box-shadow: 0 0 35px rgba(255,215,0,0.8);
         }
-        .whatsapp-icon { font-size: 1.5rem; margin-right: 10px; }
+        .contato-info {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,215,0,0.2);
+            line-height: 1.8;
+        }
         .email-link {
             color: var(--dourado);
             text-decoration: underline;
@@ -317,6 +351,7 @@
         }
         footer span { color: var(--dourado); font-weight: bold; }
 
+        /* Responsivo */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .sobre-container { flex-direction: column; text-align: center; }
@@ -342,7 +377,7 @@
         <a href="#agenda">Agendar</a>
     </nav>
 
-    <!-- 🎤 SOBRE O ARTISTA — TEXTO QUE VOCÊ ENVIOU -->
+    <!-- 🎤 SOBRE O ARTISTA — Texto completo que você enviou -->
     <section id="sobre">
         <div class="sobre-container">
             <div class="sobre-imagem">
@@ -361,7 +396,7 @@
         </div>
     </section>
 
-    <!-- 🎵 ESTILOS MUSICAIS — EXATAMENTE COMO NA IMAGEM -->
+    <!-- 🎵 ESTILOS MUSICAIS — Exatamente como na imagem -->
     <section id="estilos">
         <div class="estilos-container">
             <h2 class="estilos-titulo">Estilos Musicais</h2>
@@ -405,7 +440,7 @@
         </div>
     </section>
 
-    <!-- 💰 PACOTES + FRASE DE VALORES -->
+    <!-- 💰 PACOTES -->
     <section id="pacotes">
         <h2>💰 Pacotes de Contratação</h2>
         <div class="pacotes-grid">
@@ -446,20 +481,60 @@
         <p class="outros-valores">📌 Outros valores ao combinar — consulte para orçamento personalizado!</p>
     </section>
 
-    <!-- 📅 AGENDAMENTO + E-MAIL -->
+    <!-- 📅 AGENDAMENTO — FORMULÁRIO COMO ERA ANTES + E-MAIL -->
     <section id="agenda">
         <h2>📅 Agende Seu Evento</h2>
         <div class="agenda-box">
-            <p>Quer garantir <strong>DJ Tchuri</strong> no seu evento? Fale conosco e confirme a data!</p>
-            <p><strong>📞 Telefone/WhatsApp:</strong> +1 (774) 822-0069</p>
-            <p><strong>📧 E-mail para agendamento:</strong> <a href="mailto:Brennoferreira65@yahoo.com" class="email-link">Brennoferreira65@yahoo.com</a></p>
-            <p>Envie uma mensagem ou e-mail informando data, tipo de evento e duração. Respondo rápido! ✅</p>
-            <a href="https://wa.me/17748220069" target="_blank" class="btn-contato">
-                <span class="whatsapp-icon">💬</span> WhatsApp
-            </a>
-            <a href="mailto:Brennoferreira65@yahoo.com" class="btn-contato">
-                📧 Enviar E-mail
-            </a>
+            <p>Preencha os dados abaixo e solicite sua data! 📋</p>
+            
+            <form action="https://wa.me/17748220069?text=" method="GET" target="_blank">
+                <div class="form-group">
+                    <label for="nome">Seu Nome *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="evento">Qual evento deseja fazer? *</label>
+                    <select id="evento" name="evento" required>
+                        <option value="">Selecione o tipo de evento...</option>
+                        <option value="Aniversário">🎉 Aniversário</option>
+                        <option value="Casamento">💍 Casamento</option>
+                        <option value="Festa Corporativa">💼 Festa Corporativa</option>
+                        <option value="Balada / Festa Noturna">🌙 Balada / Festa Noturna</option>
+                        <option value="Formatura">🎓 Formatura</option>
+                        <option value="Chá de Bebê">👶 Chá de Bebê</option>
+                        <option value="Outro">📋 Outro evento</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">Data do Evento *</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="duracao">Duração do Evento</label>
+                    <select id="duracao" name="duracao">
+                        <option value="2 Horas">2 Horas — $600 USD</option>
+                        <option value="4 Horas">4 Horas — $1.100 USD</option>
+                        <option value="6 Horas">6 Horas — $1.500 USD</option>
+                        <option value="A combinar">A combinar</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Observações / Detalhes adicionais</label>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Descreva detalhes do evento, local, estilo de música preferido..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">💬 Enviar Solicitação pelo WhatsApp</button>
+            </form>
+
+            <div class="contato-info">
+                <p><strong>📞 Telefone/WhatsApp:</strong> +1 (774) 822-0069</p>
+                <p><strong>📧 E-mail para agendamento:</strong> <a href="mailto:Brennoferreira65@yahoo.com" class="email-link">Brennoferreira65@yahoo.com</a></p>
+                <p>Ou envie diretamente para o e-mail com os dados do evento! ✅</p>
+            </div>
         </div>
     </section>
 
@@ -490,6 +565,21 @@
         }
 
         setInterval(() => moverCarrossel(1), 5000);
+
+        // Formulário envia dados direto pro WhatsApp
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const evento = document.getElementById('evento').value;
+            const data = document.getElementById('data').value;
+            const duracao = document.getElementById('duracao').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            const texto = `Olá! Quero agendar um evento com o DJ Tchuri.%0A%0ANome: ${nome}%0ATipo de Evento: ${evento}%0AData: ${data}%0ADuração: ${duracao}%0A%0AObservações: ${mensagem}`;
+            
+            window.open(`https://wa.me/17748220069?text=${texto}`, '_blank');
+        });
     </script>
 
 </body>
