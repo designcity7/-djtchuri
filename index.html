@@ -1,170 +1,177 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ TCHURI — Agendamento Oficial</title>
-    <style>
-        *{margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
-        body{
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #222 100%);
-            color: #fff;
-            line-height: 1.6;
-            padding-bottom: 60px;
-        }
-        .container{max-width: 1100px; margin: 0 auto; padding: 20px;}
-
-        /* CABEÇALHO */
-        header{text-align: center; padding: 30px 20px; border-bottom: 2px solid #d4af37;}
-        .logo-img{width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #d4af37; margin-bottom: 15px;}
-        h1{color: #d4af37; font-size: 2.8rem; text-shadow: 0 0 15px #d4af37;}
-        .sub{color: #ffd700; font-size: 1.2rem; letter-spacing: 2px;}
-
-        /* SEÇÕES */
-        section{margin: 50px 0; padding: 25px; background: rgba(30,30,30,0.8); border-radius: 15px; border: 1px solid #d4af37;}
-        h2{
-            color: #d4af37;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #d4af37;
-            padding-bottom: 10px;
-            text-shadow: 0 0 8px #d4af37;
-        }
-
-        /* IMAGENS — CORRIGIDAS */
-        .imagem-bloco{width: 100%; max-width: 600px; height: 350px; margin: 20px auto; border-radius: 12px; border: 3px solid #d4af37; overflow: hidden; background: #111;}
-        .imagem-bloco img{width: 100%; height: 100%; object-fit: cover; display: block;}
-
-        /* GALERIA EVENTOS — EXATAMENTE 6 FOTOS, NEM MAIS NEM MENOS */
-        .galeria{display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px;}
-        .foto-evento{width: 100%; height: 220px; border-radius: 10px; border: 2px solid #d4af37; overflow: hidden; background: #111;}
-        .foto-evento img{width: 100%; height: 100%; object-fit: cover;}
-
-        /* PACOTES & VALORES */
-        .pacotes{display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;}
-        .pacote{background: rgba(50,40,10,0.5); padding: 20px; border-radius: 10px; border: 1px solid #d4af37; text-align: center;}
-        .pacote h3{color: #ffd700; margin-bottom: 10px;}
-        .preco{font-size: 1.8rem; color: #ffd700; font-weight: bold; margin: 10px 0;}
-        .obs-valor{text-align: center; color: #ffd700; font-size: 1.1rem; margin-top: 25px; font-style: italic;}
-
-        /* FORMULÁRIO */
-        form{display: flex; flex-direction: column; gap: 15px; margin-top: 20px;}
-        input, select, textarea{
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid #d4af37;
-            background: #222;
-            color: #fff;
-            font-size: 1rem;
-        }
-        button{
-            padding: 15px;
-            background: linear-gradient(90deg, #d4af37, #ffd700);
-            color: #000;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button:hover{transform: scale(1.03); box-shadow: 0 0 15px #ffd700;}
-
-        /* CONTATO */
-        .contato{text-align: center; margin-top: 30px; color: #ffd700; font-size: 1.1rem;}
-        .email-link{color: #ffd700; text-decoration: underline;}
-
-        footer{text-align: center; padding: 20px; color: #888; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Tchuri | Official Website</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+.bg-custom-dark { background-color: #0f0f0f; }
+.text-gold { color: #facc15; }
+.bg-gold { background-color: #facc15; }
+.border-gold { border-color: #facc15; }
+</style>
 </head>
-<body>
-    <div class="container">
+<body class="bg-custom-dark text-white font-sans antialiased">
 
-        <!-- CABEÇALHO → FOTO 1: PERFIL -->
-        <header>
-            <img src="perfil.jpg" alt="DJ TCHURI" class="logo-img">
-            <h1>DJ TCHURI</h1>
-            <p class="sub">✨ O Melhor da Música para o Seu Evento ✨</p>
-            <p style="margin-top:10px; font-size:1rem; color:#ccc;">📞 (774) 822-0069</p>
-        </header>
+<header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-neutral-800">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<a href="#" class="text-2xl font-black tracking-wider text-gold">DJ TCHURI</a>
+<nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+<a href="#sobre" class="hover:text-gold transition">Sobre</a>
+<a href="#estilos" class="hover:text-gold transition">Estilos</a>
+<a href="#servicos" class="hover:text-gold transition">Serviços</a>
+<a href="#galeria" class="hover:text-gold transition">Galeria</a>
+</nav>
+<a href="#contato" class="bg-gold text-black px-6 py-2.5 rounded-full font-bold text-sm tracking-wide hover:bg-yellow-400 transition shadow-lg shadow-yellow-500/20">
+Contratar
+</a>
+</div>
+</header>
 
-        <!-- SOBRE → FOTO 2: SOBRE -->
-        <section>
-            <h2>🎵 Sobre o DJ TCHURI</h2>
-            <div class="imagem-bloco">
-                <img src="sobre.jpg" alt="Sobre o DJ TCHURI">
-            </div>
-            <p style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
-                DJ TCHURI é um profissional dedicado, com trajetória sólida no cenário musical. Sempre levando a melhor energia e qualidade sonora para todos os tipos de eventos, desde festas particulares até grandes celebrações. Compromisso, pontualidade e um repertório cuidadosamente selecionado para fazer o seu evento inesquecível.
-            </p>
-        </section>
+<section class="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1920');"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-black/50 to-transparent"></div>
 
-        <!-- ESTILO MUSICAL → FOTO 3: ESTILO -->
-        <section>
-            <h2>🎶 Estilos Musicais</h2>
-            <div class="imagem-bloco">
-                <img src="estilo.jpg" alt="Estilos Musicais">
-            </div>
-            <p style="font-size: 1.1rem; text-align: center; color: #ffd700;">
-                MTG • Funk • Pagode • Sertanejo • Eletrônica • e muito mais!
-            </p>
-        </section>
+<div class="relative z-10 max-w-3xl mx-auto mt-12">
+<span class="text-gold uppercase tracking-[0.3em] text-sm font-bold block mb-4">Seven Productions • USA</span>
+<h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6">O Som que Marca o seu Evento</h1>
+<p class="text-neutral-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light">
+Levando a energia contagiante do Funk brasileiro e Open Format para as melhores pistas dos Estados Unidos.
+</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<a href="#contato" class="bg-gold text-black px-8 py-4 rounded-full font-bold text-base tracking-wider hover:bg-yellow-400 transition">
+Fazer Orçamento
+</a>
+<a href="#sobre" class="border border-white/30 px-8 py-4 rounded-full font-bold text-base tracking-wider hover:bg-white/10 transition">
+Conheça o Artista
+</a>
+</div>
+</div>
+</section>
 
-        <!-- PACOTES & VALORES -->
-        <section>
-            <h2>💰 Pacotes & Valores</h2>
-            <div class="pacotes">
-                <div class="pacote">
-                    <h3>Evento 2 Horas</h3>
-                    <p class="preco">$600 USD</p>
-                    <p>Equipamento incluso + som profissional</p>
-                </div>
-                <div class="pacote">
-                    <h3>Evento Personalizado</h3>
-                    <p class="preco">—</p>
-                    <p>Tempo e estrutura sob medida</p>
-                </div>
-            </div>
-            <p class="obs-valor">📌 Outros valores a combinar</p>
-        </section>
+<section id="sobre" class="py-24 px-6 bg-neutral-950">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Sobre o Artista</h2>
+<div class="w-24 h-1 bg-gold mx-auto"></div>
+</div>
 
-        <!-- GALERIA EVENTOS → EXATAMENTE 6 FOTOS: FOTO4 A FOTO9 -->
-        <section>
-            <h2>📸 Eventos Realizados</h2>
-            <div class="galeria">
-                <div class="foto-evento"><img src="evento1.jpg" alt="Evento 1"></div>
-                <div class="foto-evento"><img src="evento2.jpg" alt="Evento 2"></div>
-                <div class="foto-evento"><img src="evento3.jpg" alt="Evento 3"></div>
-                <div class="foto-evento"><img src="evento4.jpg" alt="Evento 4"></div>
-                <div class="foto-evento"><img src="evento5.jpg" alt="Evento 5"></div>
-                <div class="foto-evento"><img src="evento6.jpg" alt="Evento 6"></div>
-            </div>
-        </section>
+<div class="bg-neutral-900 border border-neutral-800 p-8 md:p-12 rounded-3xl shadow-2xl">
+<p class="text-neutral-300 text-lg leading-relaxed mb-6">
+Nascido na cidade de <strong>Rio Vermelho (MG)</strong>, DJ Tchuri sempre teve uma forte ligação com a música. Desde pequeno, nas reuniões e resenhas com os amigos, era ele quem assumia o controle do som e animava o ambiente, demonstrando sua paixão pela música e pelo entretenimento.
+</p>
+<p class="text-neutral-300 text-lg leading-relaxed mb-6">
+Em 2021, mudou-se para os <strong>Estados Unidos</strong> em busca de novas oportunidades. Foi lá que começou a transformar seu sonho em realidade. Em 2023, iniciou oficialmente sua carreira como DJ e fundou a <strong>Seven Productions</strong>, organizando seus próprios eventos e fortalecendo sua marca.
+</p>
+<p class="text-neutral-300 text-lg leading-relaxed">
+Seu principal estilo musical é o Funk BH, mas sua versatilidade permite adaptar a playlist de acordo com o perfil de cada evento. O grande diferencial de DJ Tchuri é o seu carisma, energia contagiante e conexão única com o público!
+</p>
+</div>
+</div>
+</section>
 
-        <!-- AGENDAMENTO & CONTATO -->
-        <section>
-            <h2>📅 Agende o Seu Evento</h2>
-            <form action="#" method="POST">
-                <input type="text" name="nome" placeholder="Seu nome completo" required>
-                <input type="tel" name="telefone" placeholder="Seu WhatsApp / Telefone" required>
-                <input type="text" name="evento" placeholder="Nome / Tipo do Evento" required>
-                <input type="date" name="data" required>
-                <input type="time" name="horario" required>
-                <textarea name="obs" rows="4" placeholder="Observações, estilo musical preferido, duração, etc."></textarea>
-                <button type="submit">✅ ENVIAR AGENDAMENTO</button>
-            </form>
+<section id="estilos" class="py-24 px-6">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Estilos Musicais</h2>
+<p class="text-neutral-400 mb-16">Versatilidade garantida para qualquer tipo de público e celebração.</p>
 
-            <div class="contato">
-                <p>📞 Telefone / WhatsApp: (774) 822-0069</p>
-                <p>📧 E-mail: <a href="mailto:Brennoferreira65@yahoo.com" class="email-link">Brennoferreira65@yahoo.com</a></p>
-                <p style="margin-top:15px; font-style:italic;">💬 Pode mandar e-mail ou mensagem para marcar seu agendamento!</p>
-            </div>
-        </section>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">Funk BH</span>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">Trap</span>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">House</span>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">Open Format</span>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">Afro Beat</span>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
+<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
+<span class="text-xl font-bold uppercase tracking-wider">Eletrônica</span>
+</div>
+</div>
+</div>
+</section>
 
-        <footer>
-            <p>© 2026 DJ TCHURI — Todos os direitos reservados | Site Profissional</p>
-        </footer>
+<section id="servicos" class="py-24 px-6 bg-neutral-950">
+<div class="max-w-5xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Nossos Serviços</h2>
+<p class="text-neutral-400">Perfeito para transformar o seu momento em algo inesquecível.</p>
+</div>
 
-    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
+<i class="fa-solid fa-champagne-glasses text-gold text-4xl mb-4"></i>
+<h3 class="text-xl font-bold uppercase">Festas</h3>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
+<i class="fa-solid fa-cake-candles text-gold text-4xl mb-4"></i>
+<h3 class="text-xl font-bold uppercase">Aniversários</h3>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
+<i class="fa-solid fa-ring text-gold text-4xl mb-4"></i>
+<h3 class="text-xl font-bold uppercase">Casamentos</h3>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
+<i class="fa-solid fa-briefcase text-gold text-4xl mb-4"></i>
+<h3 class="text-xl font-bold uppercase">Eventos Corporativos</h3>
+</div>
+<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl lg:col-span-2 text-center flex flex-col justify-center items-center">
+<i class="fa-solid fa-graduation-cap text-gold text-4xl mb-4"></i>
+<h3 class="text-xl font-bold uppercase">Bailes e Formaturas</h3>
+</div>
+</div>
+
+<div class="mt-12 text-center bg-gold/10 border border-gold/30 py-4 rounded-xl">
+<p class="text-gold font-semibold uppercase tracking-wider text-sm"><i class="fa-solid fa-credit-card mr-2"></i> Aceitamos todos os tipos de pagamento</p>
+</div>
+</div>
+</section>
+
+<section id="galeria" class="py-24 px-6">
+<div class="max-w-6xl mx-auto text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Galeria de Eventos</h2>
+<p class="text-neutral-400">Momentos marcantes das apresentações nos Estados Unidos.</p>
+</div>
+
+<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="overflow-hidden rounded-2xl border border-neutral-800 shadow-xl">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000" alt="Show DJ Tchuri" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
+</div>
+<div class="overflow-hidden rounded-2xl border border-neutral-800 shadow-xl">
+<img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000" alt="Evento DJ Tchuri" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
+</div>
+</div>
+</section>
+
+<footer id="contato" class="bg-black py-20 px-6 border-t border-neutral-900 text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="text-3xl font-black uppercase tracking-wider text-gold mb-6">Pronto para agitar seu evento?</h2>
+<p class="text-neutral-400 mb-8">Entre em contato agora mesmo para orçamentos, datas disponíveis e parcerias com a Seven Productions.</p>
+
+<a href="https://wa.me/10000000000" target="_blank" class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg shadow-green-600/30 mb-12">
+<i class="fa-brands fa-whatsapp text-2xl"></i> Falar pelo WhatsApp
+</a>
+
+<div class="border-t border-neutral-900 pt-8 text-neutral-500 text-sm">
+<p>&copy; 2026 DJ Tchuri & Seven Productions. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+
 </body>
 </html>
