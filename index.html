@@ -1,179 +1,269 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DJ Tchuri | Official Website</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-.bg-custom-dark { background-color: #0f0f0f; }
-.text-gold { color: #facc15; }
-.bg-gold { background-color: #facc15; }
-.border-gold { border-color: #facc15; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ TCHURI — Agendamento | Booking</title>
+    <style>
+        *{margin:0; padding:0; box-sizing:border-box; font-family: sans-serif;}
+        body{background: #000; color: #fff; line-height: 1.6; padding-top: 60px;}
+        .container{max-width: 1000px; margin: 0 auto; padding: 20px;}
+
+        /* ===== BOTÃO DE IDIOMA — ADICIONADO ===== */
+        .botao-idioma {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 999;
+            display: flex;
+            gap: 8px;
+        }
+        .botao-idioma button {
+            padding: 8px 14px;
+            border: 2px solid #d4af37;
+            background: #111;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .botao-idioma button.ativo {
+            background: #d4af37;
+            color: #000;
+        }
+        /* ESCONDE IDIOMA INATIVO */
+        [lang="en"] .pt { display: none; }
+        [lang="pt"] .en { display: none; }
+
+        /* CABEÇALHO */
+        header{text-align: center; padding: 30px; border-bottom: 2px solid #d4af37;}
+        .logo-img{width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid #d4af37;}
+        h1{color: #d4af37; font-size: 2.5rem; margin: 10px 0; text-shadow: 0 0 10px #d4af37;}
+        .sub{color: #ffd700; font-size: 1.2rem; margin-bottom: 10px;}
+
+        /* SEÇÕES */
+        section{margin: 40px 0; padding: 25px; border: 1px solid #d4af37; border-radius: 12px; background: #111;}
+        h2{color: #d4af37; font-size: 1.6rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #d4af37;}
+
+        /* IMAGENS */
+        .imagem-bloco{width: 100%; max-width: 550px; height: 320px; margin: 20px auto; border: 3px solid #d4af37; border-radius: 10px; overflow: hidden;}
+        .imagem-bloco img{width: 100%; height: 100%; object-fit: cover;}
+
+        /* GALERIA EVENTOS */
+        .galeria{display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px;}
+        .foto-evento{width: 100%; height: 200px; border: 2px solid #d4af37; border-radius: 8px; overflow: hidden;}
+        .foto-evento img{width: 100%; height: 100%; object-fit: cover;}
+
+        /* PACOTES — ESCOLHER VALOR */
+        .pacotes{display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px;}
+        .pacote{padding: 20px; border: 2px solid #d4af37; border-radius: 10px; text-align: center; background: #1a1a1a; cursor: pointer; transition: 0.3s;}
+        .pacote:hover, .pacote.selecionado{border-color: #ffd700; transform: scale(1.02); background: #2a2a2a; box-shadow: 0 0 10px #ffd700;}
+        .pacote h3{color: #ffd700; font-size: 1.3rem; margin-bottom: 10px;}
+        .preco{font-size: 2rem; color: #ffd700; font-weight: bold; margin: 10px 0; text-shadow: 0 0 8px #ffd700;}
+        .obs-valor{text-align: center; color: #ffd700; margin-top: 25px; font-style: italic; font-size: 1.1rem;}
+
+        /* FORMULÁRIO */
+        form{display: flex; flex-direction: column; gap: 12px; margin-top: 20px;}
+        input, textarea{padding: 14px; border: 1px solid #d4af37; background: #222; color: #fff; border-radius: 6px; font-size: 1rem;}
+        button{padding: 15px; background: linear-gradient(90deg, #d4af37, #ffd700); color: #000; font-weight: bold; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; transition: 0.3s;}
+        button:hover{box-shadow: 0 0 15px #ffd700;}
+
+        /* CONTATO & WHATSAPP */
+        .contato{text-align: center; margin-top: 25px; color: #ffd700; font-size: 1.1rem;}
+        .email-link{color: #ffd700; text-decoration: underline;}
+        .whatsapp-btn{
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #25d366;
+            color: #fff !important;
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .whatsapp-btn:hover{background: #1da851; transform: scale(1.05);}
+
+        footer{text-align: center; padding: 25px; color: #888; font-size: 0.9rem; border-top: 1px solid #333; margin-top: 40px;}
+
+        /* CELULAR — RESPONSIVO */
+        @media (max-width: 600px) {
+            .galeria{grid-template-columns: repeat(2, 1fr);}
+            .pacotes{grid-template-columns: 1fr;}
+            h1{font-size: 2rem;}
+            body{padding-top: 50px;}
+        }
+    </style>
 </head>
-<body class="bg-custom-dark text-white font-sans antialiased">
+<body>
 
-<header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-neutral-800">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<a href="#" class="text-2xl font-black tracking-wider text-gold">DJ TCHURI</a>
-<nav class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
-<a href="#sobre" class="hover:text-gold transition">Sobre</a>
-<a href="#estilos" class="hover:text-gold transition">Estilos</a>
-<a href="#servicos" class="hover:text-gold transition">Serviços</a>
-<a href="#galeria" class="hover:text-gold transition">Galeria</a>
-</nav>
-<a href="#contato" class="bg-gold text-black px-6 py-2.5 rounded-full font-bold text-sm tracking-wide hover:bg-yellow-400 transition shadow-lg shadow-yellow-500/20">
-Contratar
-</a>
-</div>
-</header>
+    <!-- ===== BOTÃO DE IDIOMA — ADICIONADO ===== -->
+    <div class="botao-idioma">
+        <button onclick="mudarIdioma('pt')" class="ativo" id="btn-pt">🇧🇷 PT</button>
+        <button onclick="mudarIdioma('en')" id="btn-en">🇺🇸 EN</button>
+    </div>
 
-<section class="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1920');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-black/50 to-transparent"></div>
+    <div class="container">
 
-<div class="relative z-10 max-w-3xl mx-auto mt-12">
-<span class="text-gold uppercase tracking-[0.3em] text-sm font-bold block mb-4">Seven Productions • USA</span>
-<h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight mb-6">O Som que Marca o seu Evento</h1>
-<p class="text-neutral-300 text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light">
-Levando a energia contagiante do Funk brasileiro e Open Format para as melhores pistas dos Estados Unidos.
-</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4">
-<a href="#contato" class="bg-gold text-black px-8 py-4 rounded-full font-bold text-base tracking-wider hover:bg-yellow-400 transition">
-Fazer Orçamento
-</a>
-<a href="#sobre" class="border border-white/30 px-8 py-4 rounded-full font-bold text-base tracking-wider hover:bg-white/10 transition">
-Conheça o Artista
-</a>
-</div>
-</div>
-</section>
+        <!-- CABEÇALHO -->
+        <header>
+            <img src="perfil.jpg" alt="DJ TCHURI" class="logo-img">
+            <h1>DJ TCHURI</h1>
+            <p class="sub pt">✨ O Melhor da Música para o Seu Evento ✨</p>
+            <p class="sub en">✨ The Best Music for Your Event ✨</p>
+            <p>📞 (774) 822-0069</p>
+        </header>
 
-<section id="sobre" class="py-24 px-6 bg-neutral-950">
-<div class="max-w-5xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Sobre o Artista</h2>
-<div class="w-24 h-1 bg-gold mx-auto"></div>
-</div>
+        <!-- SOBRE -->
+        <section>
+            <h2 class="pt">🎵 Sobre o DJ TCHURI</h2>
+            <h2 class="en">🎵 About DJ TCHURI</h2>
+            <div class="imagem-bloco">
+                <img src="sobre.jpg" alt="Sobre o DJ TCHURI">
+            </div>
+            <p class="pt" style="font-size: 1.1rem; line-height: 1.8;">
+                DJ TCHURI é um profissional dedicado, com trajetória sólida no cenário musical. Sempre levando a melhor energia e qualidade sonora para todos os tipos de eventos, desde festas particulares até grandes celebrações. Compromisso, pontualidade e um repertório cuidadosamente selecionado para fazer o seu evento inesquecível.
+            </p>
+            <p class="en" style="font-size: 1.1rem; line-height: 1.8;">
+                DJ TCHURI is a dedicated professional with a solid career in the music scene. Always bringing the best energy and sound quality for all kinds of events, from private parties to big celebrations. Commitment, punctuality and a carefully selected repertoire to make your event unforgettable.
+            </p>
+        </section>
 
-<div class="bg-neutral-900 border border-neutral-800 p-8 md:p-12 rounded-3xl shadow-2xl">
-<p class="text-neutral-300 text-lg leading-relaxed mb-6">
-Nascido na cidade de <strong>Rio Vermelho (MG)</strong>, DJ Tchuri sempre teve uma forte ligação com a música. Desde pequeno, nas reuniões e resenhas com os amigos, era ele quem assumia o controle do som e animava o ambiente, demonstrando sua paixão pela música e pelo entretenimento.
-</p>
-<p class="text-neutral-300 text-lg leading-relaxed mb-6">
-Em 2021, mudou-se para os <strong>Estados Unidos</strong> em busca de novas oportunidades. Foi lá que começou a transformar seu sonho em realidade. Em 2023, iniciou oficialmente sua carreira como DJ e fundou a <strong>Seven Productions</strong>, organizando seus próprios eventos e fortalecendo sua marca.
-</p>
-<p class="text-neutral-300 text-lg leading-relaxed">
-Seu principal estilo musical é o Funk BH, mas sua versatilidade permite adaptar a playlist de acordo com o perfil de cada evento. O grande diferencial de DJ Tchuri é o seu carisma, energia contagiante e conexão única com o público!
-</p>
-</div>
-</div>
-</section>
+        <!-- ESTILOS MUSICAIS -->
+        <section>
+            <h2 class="pt">🎶 Estilos Musicais</h2>
+            <h2 class="en">🎶 Music Styles</h2>
+            <div class="imagem-bloco">
+                <img src="estilo.jpg" alt="Estilos Musicais">
+            </div>
+            <p class="pt" style="text-align:center; color:#ffd700; font-size:1.2rem;">
+                MTG • Funk • Pagode • Sertanejo • Eletrônica • e muito mais!
+            </p>
+            <p class="en" style="text-align:center; color:#ffd700; font-size:1.2rem;">
+                MTG • Funk • Pagode • Sertanejo • Electronic • and much more!
+            </p>
+        </section>
 
-<section id="estilos" class="py-24 px-6">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Estilos Musicais</h2>
-<p class="text-neutral-400 mb-16">Versatilidade garantida para qualquer tipo de público e celebração.</p>
+        <!-- PACOTES — ESCOLHER VALOR -->
+        <section>
+            <h2 class="pt">💰 Escolha seu Pacote</h2>
+            <h2 class="en">💰 Choose Your Package</h2>
+            <div class="pacotes">
+                <div class="pacote" onclick="escolherPacote(this, 600)">
+                    <h3 class="pt">🎧 Evento 2 Horas</h3>
+                    <h3 class="en">🎧 2-Hour Event</h3>
+                    <p class="preco">$600 USD</p>
+                    <p class="pt">Equipamento incluso + som profissional</p>
+                    <p class="en">Equipment included + professional sound</p>
+                </div>
+                <div class="pacote" onclick="escolherPacote(this, 0)">
+                    <h3 class="pt">📋 Evento Personalizado</h3>
+                    <h3 class="en">📋 Custom Event</h3>
+                    <p class="preco">—</p>
+                    <p class="pt">Tempo e estrutura sob medida</p>
+                    <p class="en">Custom time and structure</p>
+                </div>
+            </div>
+            <p class="obs-valor pt">📌 Outros valores a combinar</p>
+            <p class="obs-valor en">📌 Other prices upon request</p>
+        </section>
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">Funk BH</span>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">Trap</span>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">House</span>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">Open Format</span>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">Afro Beat</span>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-8 rounded-2xl flex items-center space-x-4 hover:border-gold transition">
-<i class="fa-solid fa-circle-check text-gold text-2xl"></i>
-<span class="text-xl font-bold uppercase tracking-wider">Eletrônica</span>
-</div>
-</div>
-</div>
-</section>
+        <!-- GALERIA EVENTOS -->
+        <section>
+            <h2 class="pt">📸 Eventos Realizados</h2>
+            <h2 class="en">📸 Events Held</h2>
+            <div class="galeria">
+                <div class="foto-evento"><img src="evento1.jpg" alt="Evento 1"></div>
+                <div class="foto-evento"><img src="evento2.jpg" alt="Evento 2"></div>
+                <div class="foto-evento"><img src="evento3.jpg" alt="Evento 3"></div>
+                <div class="foto-evento"><img src="evento4.jpg" alt="Evento 4"></div>
+                <div class="foto-evento"><img src="evento5.jpg" alt="Evento 5"></div>
+                <div class="foto-evento"><img src="evento6.jpg" alt="Evento 6"></div>
+            </div>
+        </section>
 
-<section id="servicos" class="py-24 px-6 bg-neutral-950">
-<div class="max-w-5xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Nossos Serviços</h2>
-<p class="text-neutral-400">Perfeito para transformar o seu momento em algo inesquecível.</p>
-</div>
+        <!-- AGENDAMENTO -->
+        <section>
+            <h2 class="pt">📅 Agende o Seu Evento</h2>
+            <h2 class="en">📅 Book Your Event</h2>
+            <form action="#" method="POST">
+                <input type="text" name="nome" class="pt" placeholder="Seu nome completo" required>
+                <input type="text" name="nome" class="en" placeholder="Your full name" required>
+                
+                <input type="tel" name="telefone" class="pt" placeholder="Seu WhatsApp / Telefone" required>
+                <input type="tel" name="telefone" class="en" placeholder="Your WhatsApp / Phone" required>
+                
+                <input type="text" name="evento" class="pt" placeholder="Nome / Tipo do Evento" required>
+                <input type="text" name="evento" class="en" placeholder="Event Name / Type" required>
+                
+                <input type="date" name="data" required>
+                <input type="time" name="horario" required>
+                
+                <input type="text" name="valor" id="valorEscolhido" class="pt" placeholder="Valor selecionado" readonly>
+                <input type="text" name="valor" id="valorEscolhidoEn" class="en" placeholder="Selected price" readonly>
+                
+                <textarea name="obs" rows="4" class="pt" placeholder="Observações, estilo musical preferido, duração, etc."></textarea>
+                <textarea name="obs" rows="4" class="en" placeholder="Notes, preferred music style, duration, etc."></textarea>
+                
+                <button type="submit" class="pt">✅ ENVIAR AGENDAMENTO</button>
+                <button type="submit" class="en">✅ SEND BOOKING REQUEST</button>
+            </form>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
-<i class="fa-solid fa-champagne-glasses text-gold text-4xl mb-4"></i>
-<h3 class="text-xl font-bold uppercase">Festas</h3>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
-<i class="fa-solid fa-cake-candles text-gold text-4xl mb-4"></i>
-<h3 class="text-xl font-bold uppercase">Aniversários</h3>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
-<i class="fa-solid fa-ring text-gold text-4xl mb-4"></i>
-<h3 class="text-xl font-bold uppercase">Casamentos</h3>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl text-center">
-<i class="fa-solid fa-briefcase text-gold text-4xl mb-4"></i>
-<h3 class="text-xl font-bold uppercase">Eventos Corporativos</h3>
-</div>
-<div class="bg-neutral-900 border border-neutral-800 p-6 rounded-2xl lg:col-span-2 text-center flex flex-col justify-center items-center">
-<i class="fa-solid fa-graduation-cap text-gold text-4xl mb-4"></i>
-<h3 class="text-xl font-bold uppercase">Bailes e Formaturas</h3>
-</div>
-</div>
+            <div class="contato">
+                <p>📞 WhatsApp: (774) 822-0069</p>
+                <p>📧 E-mail: <a href="mailto:Brennoferreira65@yahoo.com" class="email-link">Brennoferreira65@yahoo.com</a></p>
+                
+                <a href="https://wa.me/17748220069" target="_blank" class="whatsapp-btn pt">
+                    💬 Falar pelo WhatsApp
+                </a>
+                <a href="https://wa.me/17748220069" target="_blank" class="whatsapp-btn en">
+                    💬 Chat on WhatsApp
+                </a>
+                
+                <p class="pt" style="margin-top:15px; font-style:italic;">Pode mandar e-mail ou mensagem para marcar seu agendamento!</p>
+                <p class="en" style="margin-top:15px; font-style:italic;">Send an email or message to schedule your event!</p>
+            </div>
+        </section>
 
-<div class="mt-12 text-center bg-gold/10 border border-gold/30 py-4 rounded-xl">
-<p class="text-gold font-semibold uppercase tracking-wider text-sm"><i class="fa-solid fa-credit-card mr-2"></i> Aceitamos todos os tipos de pagamento</p>
-</div>
-</div>
-</section>
+        <footer>
+            <p class="pt">© 2026 DJ TCHURI — Todos os direitos reservados | Site Profissional</p>
+            <p class="en">© 2026 DJ TCHURI — All rights reserved | Professional Website</p>
+        </footer>
 
-<section id="galeria" class="py-24 px-6">
-<div class="max-w-6xl mx-auto text-center mb-16">
-<h2 class="text-4xl md:text-5xl font-black uppercase tracking-wider text-gold mb-4">Galeria de Eventos</h2>
-<p class="text-neutral-400">Momentos marcantes das apresentações nos Estados Unidos.</p>
-</div>
+    </div>
 
-<div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="overflow-hidden rounded-2xl border border-neutral-800 shadow-xl">
-<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000" alt="Show DJ Tchuri" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
-</div>
-<div class="overflow-hidden rounded-2xl border border-neutral-800 shadow-xl">
-<img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000" alt="Evento DJ Tchuri" class="w-full h-80 object-cover hover:scale-105 transition duration-500">
-</div>
-</div>
-</section>
+    <!-- ===== TROCAR IDIOMA + ESCOLHER PACOTE ===== -->
+    <script>
+        // PORTUGUÊS COMO PADRÃO
+        document.documentElement.lang = 'pt';
 
-<footer id="contato" class="bg-black py-20 px-6 border-t border-neutral-900 text-center">
-<div class="max-w-2xl mx-auto">
-<h2 class="text-3xl font-black uppercase tracking-wider text-gold mb-6">Pronto para agitar seu evento?</h2>
-<p class="text-neutral-400 mb-8">Entre em contato agora mesmo para orçamentos, datas disponíveis e parcerias com a Seven Productions.</p>
+        function mudarIdioma(idioma) {
+            document.documentElement.lang = idioma;
+            // Marca botão ativo
+            document.getElementById('btn-pt').classList.remove('ativo');
+            document.getElementById('btn-en').classList.remove('ativo');
+            document.getElementById('btn-' + idioma).classList.add('ativo');
+        }
 
-<a href="https://wa.me/17748220069" target="_blank" class="inline-flex items-center gap-2 text-neutral-400 hover:text-green-400 transition">
-    <i class="fa-brands fa-whatsapp text-2xl"></i>
-    Fale no WhatsApp: (774) 822-0069
-</a>
-
-
-<div class="border-t border-neutral-900 pt-8 text-neutral-500 text-sm">
-<p>&copy; 2026 DJ Tchuri & Seven Productions. Todos os direitos reservados.</p>
-</div>
-</div>
-</footer>
-
+        function escolherPacote(card, valor) {
+            // Remove seleção de todos
+            document.querySelectorAll('.pacote').forEach(p => p.classList.remove('selecionado'));
+            // Adiciona seleção no clicado
+            card.classList.add('selecionado');
+            // Preenche o valor no formulário — PT e EN
+            const campoPt = document.getElementById('valorEscolhido');
+            const campoEn = document.getElementById('valorEscolhidoEn');
+            if (valor === 600) {
+                campoPt.value = '$600 USD — Evento 2 Horas';
+                campoEn.value = '$600 USD — 2-Hour Event';
+            } else {
+                campoPt.value = 'A combinar — Evento Personalizado';
+                campoEn.value = 'To be agreed — Custom Event';
+            }
+        }
+    </script>
 </body>
 </html>
